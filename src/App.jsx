@@ -2,6 +2,8 @@ import { DataProvider } from './Context/DataContext';
 import { Route, Routes } from 'react-router-dom';
 import Navbar from './Components/Navbar/NavBar';
 import Cards from './Components/Cards/Cards';
+import HomePage from './Components/Home/HomePage';
+import Game from './Components/PlayGame/Game';
 import './App.css'
 //  <Route path='/' element={<Home />} />
 
@@ -16,20 +18,14 @@ function App() {
       <DataProvider>
 
         <div className='game-board'>
-
+         
           <div className="play-board">
 
-            <div className='info-board'>
-              <button>haa</button>
-              <aside>kiuh</aside>
-              <span>Credit:</span>
-
-            </div>
-
-            <div className="card-board">
-              <Cards />
-            </div>
-
+            <Routes>
+              <Route path='/' element={<HomePage />} />
+              <Route path='/game' element={<Game />} />
+            </Routes>
+    
           </div>
 
 

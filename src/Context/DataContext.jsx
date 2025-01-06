@@ -9,17 +9,17 @@ import { createContext, useState, useEffect } from 'react';
 const DataContext = createContext({});
 
 export const DataProvider = ({ children }) => {
-    
+    const [money, setMoney] = useState(0)
+    const [bet, setBet] = useState(0)
 
-    
 
-   
 
-    
+
+
 
     return (
         <DataContext.Provider value={{
-           
+            money, setMoney, bet, setBet
         }}>
             {children}
         </DataContext.Provider>

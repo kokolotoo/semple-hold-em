@@ -20,12 +20,10 @@ const Cards = () => {
 
   return (
     <div>
-      <h1>Cards</h1>
-
       <div className='cards'>
         {currentCards.map((cart, i) =>
         <section key={i} className='single-cart'>
-            <img src={cart.img} alt="" />
+            <img src={cart.img} alt="" /><hr />
             <button className='play-buttons'>hold</button>
         </section>
     
