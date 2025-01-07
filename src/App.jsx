@@ -18,31 +18,23 @@ function App() {
       <DataProvider>
 
         <div className='game-board'>
-         
+
           <div className="play-board">
 
             <Routes>
               <Route path='/' element={<HomePage />} />
               <Route path='/game' element={<Game />} />
             </Routes>
-    
+
           </div>
 
 
           <div className="button-board">
-
+            <button>Row</button>
           </div>
 
         </div>
 
-
-        {
-          /*
-            <Routes>
-              <Route path='/' element={<Cards />} />
-            </Routes>
-            */
-        }
       </DataProvider>
 
     </>
