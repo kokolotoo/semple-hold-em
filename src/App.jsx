@@ -32,9 +32,13 @@ function App() {
 
 
           <div className="button-board">
+            <button>Bet ➖</button>
+            <button>Bet ➕</button>
             <button>Red</button>
             <button>Black</button>
-            <button>Row</button>
+            <button>Get</button>
+            <button>Double</button>
+            <button>Play</button>
           </div>
 
         </div>

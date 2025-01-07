@@ -14,7 +14,7 @@ button {
 
 .game-board {
    border: 2px solid gray;
-   background-color: rgb(171, 177, 177);
+   background-color: rgb(138, 141, 138);
    height: 85vh;
    width: 70vw;
    min-width: 80%;
@@ -35,6 +35,7 @@ button {
    height: 80%;
    border: 3px solid black;
    border-radius: 10px;
+   background-color: rgb(50, 67, 99);
 }
 
 .button-board{
