@@ -5,8 +5,10 @@ import Cards from './Components/Cards/Cards';
 import HomePage from './Components/Home/HomePage';
 import Game from './Components/PlayGame/Game';
 import About from './Components/Home/About';
+import PlayButtons from './Components/PlayGame/PlayButtons';
 import './App.css'
 //  <Route path='/' element={<Home />} />
+
 
 
 
@@ -31,15 +33,7 @@ function App() {
           </div>
 
 
-          <div className="button-board">
-            <button>Bet ➖</button>
-            <button>Bet ➕</button>
-            <button>Red</button>
-            <button>Black</button>
-            <button>Get</button>
-            <button>Double</button>
-            <button>Play</button>
-          </div>
+          <PlayButtons />
 
         </div>
 

@@ -24,3 +24,9 @@
     height: 150px;
     background-color: rgb(133, 92, 245);
 }
+
+.button-board {
+    margin-bottom: 4%;
+    display: flex;
+    justify-content: space-around;
+}

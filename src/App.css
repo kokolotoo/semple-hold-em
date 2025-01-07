@@ -38,8 +38,3 @@ button {
    background-color: rgb(50, 67, 99);
 }
 
-.button-board{
-   margin-bottom: 4%;
-   display: flex;
-   justify-content: space-around;
-}

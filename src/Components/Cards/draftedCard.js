@@ -19,7 +19,8 @@ export const generateDeck = () => {
 
             deck.push({
                 symbol,
-                img: `https://deckofcardsapi.com/static/img/${rank}${suit}.png`
+                img: `https://deckofcardsapi.com/static/img/${rank}${suit}.png`,
+                stopped: false
             });
         }
     }

@@ -12,6 +12,10 @@ export const DataProvider = ({ children }) => {
     const [money, setMoney] = useState(0)
     const [bet, setBet] = useState(0)
     const [deckOfCards, setDeckOfCards] = useState(generateDeck())
+    const [isOpened, setIsOpened] = useState(false)
+    const [playGame, setPlayGame] = useState(false)
+    const [firstRow, setFirstRow] = useState(true)
+
     //const { data, fetchError, isLoading } = useAxiosFetch('https://deckofcardsapi.com/api/deck/new/draw/?count=52');
     //console.log(data.cards);
 
@@ -20,7 +24,9 @@ export const DataProvider = ({ children }) => {
 
     return (
         <DataContext.Provider value={{
-            money, setMoney, bet, setBet, deckOfCards
+            money, setMoney, bet, setBet, deckOfCards,
+            isOpened, setIsOpened, playGame, setPlayGame,
+            firstRow, setFirstRow
         }}>
             {children}
         </DataContext.Provider>
