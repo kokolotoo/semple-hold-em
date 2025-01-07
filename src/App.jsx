@@ -4,6 +4,7 @@ import Navbar from './Components/Navbar/NavBar';
 import Cards from './Components/Cards/Cards';
 import HomePage from './Components/Home/HomePage';
 import Game from './Components/PlayGame/Game';
+import About from './Components/Home/About';
 import './App.css'
 //  <Route path='/' element={<Home />} />
 
@@ -24,12 +25,15 @@ function App() {
             <Routes>
               <Route path='/' element={<HomePage />} />
               <Route path='/game' element={<Game />} />
+              <Route path='/about' element={<About />} />
             </Routes>
 
           </div>
 
 
           <div className="button-board">
+            <button>Red</button>
+            <button>Black</button>
             <button>Row</button>
           </div>
 

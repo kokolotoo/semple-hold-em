@@ -6,7 +6,7 @@ const Game = () => {
     return (
         <div className='game'>
             <div className='info-board'>
-                <button>haa</button>
+                <samp>haa</samp>
                 <aside>kiuh</aside>
                 <span>Credit:</span>
             </div>

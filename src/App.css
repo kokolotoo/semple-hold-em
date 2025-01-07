@@ -2,9 +2,12 @@
    margin: 0;
    padding: 0;
    box-sizing: border-box;
-   background-color: rgb(212, 228, 241);
+ 
 }
 
+body{
+   background-color: rgb(212, 228, 241);
+}
 button {
    cursor: pointer;
 }
@@ -35,7 +38,6 @@ button {
 }
 
 .button-board{
-   background-color: transparent;
    margin-bottom: 4%;
    display: flex;
    justify-content: space-around;
