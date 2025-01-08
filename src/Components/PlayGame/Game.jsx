@@ -12,8 +12,8 @@ const Game = () => {
         <div className='game'>
             <div className='info-board'>
                 <samp>haa</samp>
-                <aside>Bet: <b>{bet}</b></aside>
-                <span>Credit: <b>{money}</b></span>
+                <aside>Bet: <b style={{color:'white'}}>{bet}</b></aside>
+                <span>Credit: <b style={{color:'white'}}>{money}</b></span>
             </div>
 
             <div className="game-info">

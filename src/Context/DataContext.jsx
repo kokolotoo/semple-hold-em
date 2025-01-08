@@ -10,7 +10,7 @@ const DataContext = createContext({});
 
 export const DataProvider = ({ children }) => {
     const [money, setMoney] = useState(0)
-    const [bet, setBet] = useState(0)
+    const [bet, setBet] = useState(1)
     const [deckOfCards, setDeckOfCards] = useState(generateDeck())
     const [isOpened, setIsOpened] = useState(false)
     const [playGame, setPlayGame] = useState(false)

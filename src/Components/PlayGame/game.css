@@ -3,18 +3,18 @@
     justify-content: space-around;
     padding: 10px;
     background-color: rgb(88, 122, 109);
-   
+
 }
 
-.game{
+.game {
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    
+
 }
 
-.card-board{
+.card-board {
     border-top: 3px solid gray;
     padding: 5px;
     display: flex;
@@ -22,14 +22,55 @@
 
 }
 
-.game-info{
+.game-info {
     width: 100%;
     height: 150px;
     background-color: rgb(133, 92, 245);
 }
 
 .button-board {
-    margin-bottom: 4%;
+    margin-bottom: 2%;
     display: flex;
     justify-content: space-around;
+    align-items: center;
+    height: 50px;
+}
+
+
+.playButton {
+    padding: 20px 5px 20px 5px;
+    border-radius: 5px;
+    background-color: rgb(0, 56, 12);
+    color: bisque;
+    font-size: large;
+    transition: 0.2s;
+}
+
+.playButton:hover {
+    color: rgb(205, 255, 255);
+    scale: 1.1;
+}
+
+.button {
+    padding: 5px 15px 5px 15px;
+    background-color: rgb(97, 97, 97);
+    color: antiquewhite;
+    border-radius: 3px;
+}
+
+.black{
+    background-color: black;
+}
+.red{
+    background-color: brown;
+}
+
+@media(max-width: 1160px) {
+
+    .button {
+        padding: 1px;
+    }
+        .playButton {
+            padding: 15px 5px 15px 5px;
+        }
 }
