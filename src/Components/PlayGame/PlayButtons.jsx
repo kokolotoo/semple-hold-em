@@ -6,13 +6,19 @@ import './game.css'
 
 
 const PlayButtons = () => {
-    const { setIsOpened } = useContext(DataContext);
+    const { setIsOpened, setFirstRow } = useContext(DataContext);
     const location = useLocation();
     const [gameIsOpen, setGameIsOpen] = useState(false)
     const route = location.pathname.startsWith('/game')
     useEffect(() => {
         setGameIsOpen(route)
     }, [route])
+
+    const play = () => {
+        
+        setIsOpened(prev => !prev)
+        setFirstRow(prev => !prev)
+    }
 
     return (
 
@@ -26,7 +32,7 @@ const PlayButtons = () => {
                     <button className='get button'>Get</button>
                     <button className='double button'>Double</button>
                     <button
-                        onClick={() => setIsOpened(prev => !prev)}
+                        onClick={play}
                         className='playButton'
                     >Play</button>
                 </div >

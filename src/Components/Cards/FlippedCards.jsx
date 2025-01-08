@@ -1,7 +1,9 @@
 import React from 'react'
 import ReactCardFlip from 'react-card-flip';
+import { useState } from 'react';
+import './carts.css'
 
-const FlippedCards = (cart) => {
+const FlippedCards = ({cart}) => {
     const [flipped, setFlipped] = useState(false)
     const handleFlip = () => {
         setFlipped(true)
@@ -13,18 +15,19 @@ const FlippedCards = (cart) => {
       <ReactCardFlip
           isFlipped={flipped}
           flipDirection="horizontal"
-          flipSpeedBackToFront={1.5}
-          flipSpeedFrontToBack={1.5}
+          flipSpeedBackToFront={0.5}
+          flipSpeedFrontToBack={0.5}
       >
-          <div className='cart'>
-              This is the front of the card.
+          <section>
+              <img src="https://deckofcardsapi.com/static/img/back.png" alt="" />
+              <br />
               <button onClick={handleFlip}>Click to flip</button>
-          </div>
+          </section>
 
-          <div className='cart back'>
-              <img src={cart.img} alt="" /><hr />
-              <button onClick={() => setFlipped(prev => !prev)}>Click to flip</button>
-          </div>
+          <section>
+              <img src={cart.img} alt="" />
+             <br />
+          </section>
       </ReactCardFlip>
   )
 }

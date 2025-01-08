@@ -20,7 +20,8 @@ export const generateDeck = () => {
             deck.push({
                 symbol,
                 img: `https://deckofcardsapi.com/static/img/${rank}${suit}.png`,
-                stopped: false
+                stopped: false,
+                flipped: false
             });
         }
     }
