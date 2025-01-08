@@ -1,6 +1,6 @@
 .cards {
     display: flex;
-    column-gap: 10px;
+    column-gap: 30px;
 }
 
 .cards img {
@@ -16,14 +16,14 @@
     padding: 5px;
 }
 
-.single-cart{
+.single-cart {
     display: flex;
     flex-direction: column;
     row-gap: 20px;
 }
 
 
-@media(max-width: 1092px) {
+@media(max-width: 1160px) {
 
     .cards img,
     .cards button {
@@ -31,43 +31,55 @@
     }
 }
 
-@media(max-width: 900px) {
+@media(max-width: 980px) {
 
     .cards img,
     .cards button {
-        max-width: 100px;
+        max-width: 110px;
+    }
+
+    .cards {
+        column-gap: 20px;
     }
 }
 
-@media(max-width: 764px) {
+@media(max-width: 864px) {
+
+    .cards img,
+    .cards button {
+        max-width: 90px;
+    }
+}
+
+@media(max-width: 735px) {
 
     .cards img,
     .cards button {
         max-width: 80px;
     }
+
+    .cards {
+        column-gap: 10px;
+    }
 }
 
-@media(max-width: 633px) {
+@media(max-width: 610px) {
 
     .cards img,
     .cards button {
         max-width: 60px;
     }
-}
-
-@media(max-width: 500px) {
 
     .cards img {
-        width: 50px;
-        height: 100px;
+        height: 130px;
     }
 
-    .cards button {
-        width: 45px;
+    .cards {
+        column-gap: 10px;
     }
 }
 
-@media(max-width: 435px) {
+@media(max-width: 478px) {
 
     .cards img {
         margin-left: 5px;
@@ -76,23 +88,24 @@
 
     }
 
-    .cards button {
+    .cards section button {
         margin-left: 8px;
         max-width: 40px;
+        padding: 0 2px 0 2px;
     }
 }
 
 @media(max-width: 390px) {
 
     .cards img {
-        margin-left: 5px;
+        margin-left: 3px;
         width: 40px;
         height: 100px;
 
     }
 
     .cards button {
-        margin-left: 8px;
+        margin-left: 2px;
         max-width: 35px;
     }
 }
@@ -109,5 +122,6 @@
     .cards button {
         margin-left: 8px;
         max-width: 30px;
+
     }
 }

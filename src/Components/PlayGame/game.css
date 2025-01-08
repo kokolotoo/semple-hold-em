@@ -17,6 +17,9 @@
 .card-board{
     border-top: 3px solid gray;
     padding: 5px;
+    display: flex;
+    justify-content: center;
+
 }
 
 .game-info{
