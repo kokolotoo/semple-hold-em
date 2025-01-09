@@ -1,10 +1,7 @@
-//Това е провайдър. Улеснява цялото съдържание на компонентите 
-//служи като родител на всички компоненти , като им предава всички ,
-// състояние, функции , и тн. Всичко,което е обвито в него (като негови деца)
-// наследява това,което съдържа провйдъра .
+
 import { generateDeck, draftedCard } from '../Components/Cards/draftedCard';
 import { createContext, useState, useEffect } from 'react';
-//import useAxiosFetch from '../Hooks/useAxiosFetch';
+
 
 const DataContext = createContext({});
 
@@ -17,8 +14,7 @@ export const DataProvider = ({ children }) => {
     const [firstRow, setFirstRow] = useState(true)
     const [currentCards, setCurrentCards] = useState([])
 
-    //const { data, fetchError, isLoading } = useAxiosFetch('https://deckofcardsapi.com/api/deck/new/draw/?count=52');
-    //console.log(data.cards);
+  
 
     useEffect(() => {
         setCurrentCards(draftedCard())

@@ -3,7 +3,6 @@ import { useContext } from "react";
 import useWinCheck from "./useWinCheck";
 
 
-
 const usePlayGame = () => {
     const { setIsOpened, firstRow, setFirstRow, bet,
         currentCards, setCurrentCards, draftedCard, deckOfCards, money, setMoney
@@ -14,7 +13,9 @@ const usePlayGame = () => {
     const play = () => {
 
         if (firstRow) {
-            setCurrentCards(draftedCard())
+            const newCards = draftedCard()
+            setCurrentCards(newCards)
+
             if (bet > money) {
                 alert("Not money")
                 return
@@ -27,30 +28,26 @@ const usePlayGame = () => {
             setTimeout(() => {
                 setIsOpened(prev => !prev)
             }, 1500)
-          
+
 
         } else {
-
+            
             const newCards = currentCards.map(item => {
                 if (!item.stopped) {
                     return { ...item, flipped: !item.flipped }
                 }
                 return item
             })
-            setCurrentCards(newCards);//До тук картите се обръщат освен стопираните
-            generateNewRowCards();//маха всички карти освен стопираните и генерира нови на тяхно място
+
+            const newRowCards = generateNewRowCards(newCards)
+            setCurrentCards(newRowCards);
 
             setTimeout(() => {
                 flipCards();
                 setIsOpened(prev => !prev)
-                
-                console.log(currentCards);
-
-                console.log(checkWinningCombination(newCards, bet));
+                console.log(newRowCards);
+                console.log(checkWinningCombination(newRowCards, bet));
             }, 400)
-
-
-
         }
         setFirstRow(prev => !prev)
     }
@@ -70,9 +67,9 @@ const usePlayGame = () => {
         setTimeout(() => flipCards(index + 1), 150); // Обработи следващата карта след 200ms
     };
 
-    const generateNewRowCards = () => {
+    const generateNewRowCards = (current) => {
 
-        const newRowCards = currentCards.map((item) => {
+        const newRowCards = current.map((item) => {
             if (item.stopped) {
                 return item;
             } else {
@@ -87,7 +84,7 @@ const usePlayGame = () => {
             }
         });
 
-        setCurrentCards(newRowCards);
+        return newRowCards
     }
 
 
