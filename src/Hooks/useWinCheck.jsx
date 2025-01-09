@@ -52,12 +52,12 @@ const useWinCheck = () => {
         }
 
         if (Object.values(rankCounts).includes(3)) {
-            const win = bet * 5;
+            const win = bet * 3;
             return { combination: "Three of a Kind", win };
         }
 
         if (Object.values(rankCounts).filter((count) => count === 2).length === 2) {
-            const win = bet * 4;
+            const win = bet * 2;
             return { combination: "Two Pair", win };
         }
 
@@ -68,8 +68,8 @@ const useWinCheck = () => {
             );
 
             if (highPair.length > 0) {
-                const win = bet * 2;
-                return { combination: `One Pair (${highPair[0]})`, win };
+                const win = bet ;
+                return { combination: "One Pair", win };
             }
         }
 

@@ -9,8 +9,8 @@ const FlippedCards = ({cart}) => {
       <ReactCardFlip
           isFlipped={cart.flipped}
           flipDirection="horizontal"
-          flipSpeedBackToFront={0.5}
-          flipSpeedFrontToBack={0.5}
+          flipSpeedBackToFront={0.4}
+          flipSpeedFrontToBack={0.4}
       >
           <section>
               <img src="https://deckofcardsapi.com/static/img/back.png" alt="" />

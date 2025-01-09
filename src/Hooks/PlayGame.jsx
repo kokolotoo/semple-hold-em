@@ -5,7 +5,8 @@ import useWinCheck from "./useWinCheck";
 
 const usePlayGame = () => {
     const { setIsOpened, firstRow, setFirstRow, bet,
-        currentCards, setCurrentCards, draftedCard, deckOfCards, money, setMoney
+        currentCards, setCurrentCards, draftedCard, deckOfCards, money,
+        setMoney, setWinCheckResult
     } = useContext(DataContext);
 
     const { checkWinningCombination } = useWinCheck()
@@ -13,6 +14,8 @@ const usePlayGame = () => {
     const play = () => {
 
         if (firstRow) {
+           
+            setWinCheckResult('')
             const newCards = draftedCard()
             setCurrentCards(newCards)
 
@@ -20,18 +23,23 @@ const usePlayGame = () => {
                 alert("Not money")
                 return
             }
+            if (bet === 0) {
+                alert("Not bet")
+                return
+            }
 
             setMoney(prev => prev - bet)
+
             setTimeout(() => {
                 flipCards()
             }, 400)
+
             setTimeout(() => {
                 setIsOpened(prev => !prev)
             }, 1500)
 
 
         } else {
-            
             const newCards = currentCards.map(item => {
                 if (!item.stopped) {
                     return { ...item, flipped: !item.flipped }
@@ -39,15 +47,23 @@ const usePlayGame = () => {
                 return item
             })
 
+            setCurrentCards(newCards);
+
             const newRowCards = generateNewRowCards(newCards)
-            setCurrentCards(newRowCards);
+
+            setTimeout(() => {
+                setCurrentCards(newRowCards);
+            }, 200)
 
             setTimeout(() => {
                 flipCards();
                 setIsOpened(prev => !prev)
-                console.log(newRowCards);
-                console.log(checkWinningCombination(newRowCards, bet));
             }, 400)
+
+            setTimeout(() => {
+                setWinCheckResult(checkWinningCombination(newRowCards, bet));
+                console.log(checkWinningCombination(newRowCards, bet));
+            }, 1500)
         }
         setFirstRow(prev => !prev)
     }

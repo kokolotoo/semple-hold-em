@@ -6,13 +6,14 @@ import { createContext, useState, useEffect } from 'react';
 const DataContext = createContext({});
 
 export const DataProvider = ({ children }) => {
-    const [money, setMoney] = useState(2000)
+    const [money, setMoney] = useState(20)
     const [bet, setBet] = useState(1)
     const deckOfCards = generateDeck()
     const [isOpened, setIsOpened] = useState(true)
     const [playGame, setPlayGame] = useState(false)
     const [firstRow, setFirstRow] = useState(true)
     const [currentCards, setCurrentCards] = useState([])
+    const [winCheckResult, setWinCheckResult] = useState('')
 
   
 
@@ -26,7 +27,7 @@ export const DataProvider = ({ children }) => {
             money, setMoney, bet, setBet, deckOfCards,
             isOpened, setIsOpened, playGame, setPlayGame,
             firstRow, setFirstRow, currentCards, setCurrentCards,
-            draftedCard,
+            draftedCard, winCheckResult, setWinCheckResult
         }}>
             {children}
         </DataContext.Provider>
