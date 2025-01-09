@@ -12,6 +12,9 @@ const About = () => {
         It is not played with real money and potential winnings are not paid out.
       </p>
       <h3>Have fun 😎</h3>
+      <footer>
+        <p> Created by <b>Kokoloto&reg;</b></p>
+      </footer>
     </main>
   )
 }

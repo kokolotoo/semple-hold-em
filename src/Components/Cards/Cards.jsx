@@ -7,14 +7,9 @@ import './carts.css'
 
 
 const Cards = () => {
-  const [currentCards, setCurrentCards] = useState([])
-  const { isOpened } = useContext(DataContext);
+ 
+  const { isOpened, currentCards, setCurrentCards } = useContext(DataContext);
 
-
-  useEffect(() => {
-    const rowCards = draftedCard()
-    setCurrentCards(rowCards)
-  }, [])
 
   const stopCard = (current) => {
     const newCards = currentCards.map(item => {
@@ -23,7 +18,7 @@ const Cards = () => {
       }
       return item
     })
-    console.log(newCards);
+    //console.log(newCards);
     setCurrentCards(newCards)
   }
 
