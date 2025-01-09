@@ -21,8 +21,7 @@ export const DataProvider = ({ children }) => {
     //console.log(data.cards);
 
     useEffect(() => {
-        const rowCards = draftedCard()
-        setCurrentCards(rowCards)
+        setCurrentCards(draftedCard())
     }, [])
 
 

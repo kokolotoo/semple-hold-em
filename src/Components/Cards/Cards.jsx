@@ -7,9 +7,10 @@ import './carts.css'
 
 
 const Cards = () => {
- 
+
   const { isOpened, currentCards, setCurrentCards } = useContext(DataContext);
 
+  //console.log(currentCards);
 
   const stopCard = (current) => {
     const newCards = currentCards.map(item => {
@@ -18,7 +19,7 @@ const Cards = () => {
       }
       return item
     })
-    //console.log(newCards);
+
     setCurrentCards(newCards)
   }
 
