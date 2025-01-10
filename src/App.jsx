@@ -17,9 +17,9 @@ function App() {
 
   return (
     <>
-      <Navbar />
+     
       <DataProvider>
-
+        <Navbar />
         <div className='game-board'>
 
           <div className="play-board">

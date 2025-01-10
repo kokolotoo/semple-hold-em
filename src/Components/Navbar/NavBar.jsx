@@ -3,7 +3,7 @@ import './navBar.css';
 import { useEffect, useState } from "react";
 
 // Импортира аудиото
-import audioFile from '../../assets/about-sound.mp3'; 
+import audioFile from '../../assets/about-sound.mp3';
 
 export default function Navbar() {
 
@@ -19,7 +19,8 @@ export default function Navbar() {
     }
 
     const playAudio = () => {
-        audio.play(); 
+        audio.play();
+        setMenuOpen(false);
     }
 
     useEffect(() => {
@@ -32,15 +33,17 @@ export default function Navbar() {
 
     return (
         <nav className='header__nav'>
-            <Link to='/' className='header__logo'>
-                💒 Home
-            </Link>
-
-            <Link to='/about' className='header__logo' onClick={playAudio}>
-                About
-            </Link>
 
             <ul className={`header__menu ${menuOpen ? 'header__menu-open' : ''}`}>
+
+                <Link to='/' className='header__logo' onClick={closeMenu}>
+                    💒 Home
+                </Link>
+
+                <Link to='/about' className='header__logo' onClick={playAudio}>
+                    About
+                </Link>
+
                 <li className='header__item' onClick={closeMenu}><Link to='/game'>Play Game</Link></li>
             </ul>
 
