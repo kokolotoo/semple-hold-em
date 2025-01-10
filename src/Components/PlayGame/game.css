@@ -162,3 +162,19 @@
     }
 
 }
+
+@media only screen and (max-height: 300px) {
+    .section {
+            display: flex;
+            flex-direction: row;
+            row-gap: 10px;
+            margin-bottom: 2px;
+        }
+    
+        .betButtons {
+            row-gap: 1px;
+        }
+          .playButton {
+              padding: 4px 1px 4px 1px;
+          }
+}

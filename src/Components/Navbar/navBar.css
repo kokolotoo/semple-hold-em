@@ -82,7 +82,7 @@
 @media screen and (max-width: 750px) {
    
     .header__menu {
-        height: 20vh;
+        height: 25vh;
         width: 40%;
     }
 
@@ -91,4 +91,11 @@
 
 body.scroll-lock {
     overflow: hidden;
+}
+@media only screen and (max-height: 300px) {
+    .header__menu {
+            height: 25vh;
+            width: 80%;
+            flex-direction: row;
+        }
 }

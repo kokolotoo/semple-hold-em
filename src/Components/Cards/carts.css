@@ -130,7 +130,7 @@
 
     .cards button {
 
-       max-width: 50px;
+        max-width: 50px;
 
     }
 
@@ -163,8 +163,8 @@
 
     .cards img {
         margin-left: 2px;
-        width: 37px;
-        height: 120px;
+        width: 40px;
+        height: 90px;
 
     }
 
@@ -176,5 +176,25 @@
 
     .cards {
         column-gap: 13px;
+    }
+}
+
+@media only screen and (max-height: 300px) {
+    .cards img {
+        margin-left: 2px;
+        width: 60px;
+        height: 50px;
+
+    }
+
+    .cards button {
+
+        max-width: 60px;
+        height: 26px;
+        padding: 0;
+    }
+
+    .cards {
+        column-gap: 23px;
     }
 }
