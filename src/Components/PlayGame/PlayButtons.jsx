@@ -81,17 +81,22 @@ const PlayButtons = () => {
 
                     </section>
 
-                    <button className='red button'>Red</button>
-                    <button className='black button'>Black</button>
+                    <section className='red-black section'>
+                        <button className='red button'>Red</button>
+                        <button className='black button'>Black</button>
 
-                    <button className='get button'
-                        onClick={getMoney}
-                        style={{ backgroundColor: winCheckResult ? 'lightgreen' : 'lightgray' }}
-                    >Get</button>
+                    </section>
 
-                    <button className='double button'
-                        style={{ backgroundColor: winCheckResult ? 'lightgreen' : 'lightgray' }}
-                    >Double</button>
+                    <section className='get-double section'>
+                        <button className='get button'
+                            onClick={getMoney}
+                            style={{ backgroundColor: winCheckResult ? 'lightgreen' : 'lightgray' }}
+                        >Get</button>
+
+                        <button className='double button'
+                            style={{ backgroundColor: winCheckResult ? 'lightgreen' : 'lightgray' }}
+                        >Double</button>
+                    </section>
 
                     <button
                         disabled={winCheckResult ? true : false}

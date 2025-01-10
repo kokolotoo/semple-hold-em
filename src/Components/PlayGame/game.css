@@ -91,6 +91,12 @@
     color: rgb(162, 230, 241);
 }
 
+.section {
+    display: flex;
+    flex-direction: row;
+    column-gap: 10px;
+}
+
 @media(max-width: 1160px) {
 
     .button {
@@ -108,6 +114,16 @@
         padding: 10px 2px 10px 2px;
     }
 
+}
+
+@media(max-width: 694px) {
+
+    .section {
+        display: flex;
+        flex-direction: column;
+        row-gap: 10px;
+        margin-bottom: 25px;
+    }
 }
 
 @media(max-width: 390px) {

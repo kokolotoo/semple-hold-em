@@ -57,7 +57,26 @@
 
 @media(max-width: 735px) {
 
-    .cards img,
+
+    .cards button {
+        max-width: 90px;
+    }
+
+    .cards img {
+        height: 150px;
+    }
+
+    .cards {
+        column-gap: 15px;
+    }
+}
+
+@media(max-width: 630px) {
+    .cards img {
+        height: 150px;
+        max-width: 80px;
+    }
+
     .cards button {
         max-width: 80px;
     }
@@ -67,15 +86,17 @@
     }
 }
 
-@media(max-width: 610px) {
 
-    .cards img,
-    .cards button {
-        max-width: 60px;
-    }
+
+@media(max-width: 558px) {
 
     .cards img {
         height: 130px;
+        max-width: 70px;
+    }
+
+    .cards button {
+        max-width: 70px;
     }
 
     .cards {
@@ -83,53 +104,77 @@
     }
 }
 
-@media(max-width: 478px) {
-
+@media(max-width: 494px) {
     .cards img {
-        margin-left: 2px;
-        width: 47px;
-        height: 90px;
-
+        height: 120px;
+        max-width: 60px;
     }
 
-    .cards section button {
-        margin-left: 8px;
-        max-width: 40px;
-        padding: 0 2px 0 2px;
+    .cards button {
+        max-width: 60px;
+    }
+
+    .cards {
+        column-gap: 12px;
     }
 }
 
-@media(max-width: 390px) {
+@media(max-width: 425px) {
 
     .cards img {
         margin-left: 5px;
-        width: 35px;
-        height: 80px;
+        width: 45px;
+        height: 100px;
 
     }
 
     .cards button {
-        margin-left: 1px;
-        max-width: 30px;
-    }
-}
 
-@media(max-width: 361px) {
-
-    .cards img {
-        margin-left: 6px;
-        width: 38px;
-        height: 70px;
-
-    }
-
-    .cards button {
-        margin-left: 5px;
-        width: 10px;
+       max-width: 50px;
 
     }
 
     .cards {
-        column-gap: 3px;
+        column-gap: 10px;
+    }
+}
+
+@media(max-width: 364px) {
+
+    .cards img {
+        margin-left: 2px;
+        width: 45px;
+        height: 120px;
+
+    }
+
+    .cards button {
+
+        max-width: 50px;
+
+    }
+
+    .cards {
+        column-gap: 10px;
+    }
+}
+
+@media(max-width: 316px) {
+
+    .cards img {
+        margin-left: 2px;
+        width: 37px;
+        height: 120px;
+
+    }
+
+    .cards button {
+
+        max-width: 40px;
+        font-size: smaller;
+    }
+
+    .cards {
+        column-gap: 10px;
     }
 }

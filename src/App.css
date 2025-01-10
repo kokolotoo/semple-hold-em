@@ -38,3 +38,12 @@ button {
    background-color: rgb(50, 67, 99);
 }
 
+
+@media(max-width: 720px) {
+.game-board {
+      
+      height: 88vh;
+      width: 90vw;
+
+   }
+}
