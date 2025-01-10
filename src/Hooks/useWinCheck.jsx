@@ -2,7 +2,6 @@
 
 const useWinCheck = () => {
 
-
     const checkWinningCombination = (cards, bet) => {
         const ranks = cards.map((card) => card.symbol.slice(0, -1)); // Пример: ['8', '10', 'Q', '9', '8']
         const suits = cards.map((card) => card.symbol.slice(-1)); // Пример: ['♠', '♦', '♠', '♣', '♦']
@@ -19,46 +18,52 @@ const useWinCheck = () => {
             return sorted.every((val, index) => index === 0 || val - sorted[index - 1] === 1);
         };
 
+        const getCombinationCards = (condition) => cards.filter(condition);
+
         // Проверка за Royal Flush и Straight Flush
         if (suits.every((suit) => suit === suits[0])) {
             if (["10", "J", "Q", "K", "A"].every((rank) => ranks.includes(rank))) {
                 const win = bet * 30;
-                return { combination: "Royal Flush", win };
+                return { combination: "Royal Flush", win, cards: [...cards] };
             }
             if (isConsecutive(ranks)) {
                 const win = bet * 25;
-                return { combination: "Straight Flush", win };
+                return { combination: "Straight Flush", win, cards: [...cards] };
             }
         }
 
         if (Object.values(rankCounts).includes(4)) {
             const win = bet * 20;
-            return { combination: "Four of a Kind", win };
+            const fourCards = getCombinationCards((card) => rankCounts[card.symbol.slice(0, -1)] === 4);
+            return { combination: "Four of a Kind", win, cards: fourCards };
         }
 
         if (Object.values(rankCounts).includes(3) && Object.values(rankCounts).includes(2)) {
             const win = bet * 15;
-            return { combination: "Full House", win };
+            const fullHouseCards = getCombinationCards((card) => rankCounts[card.symbol.slice(0, -1)] >= 2);
+            return { combination: "Full House", win, cards: fullHouseCards };
         }
 
         if (suits.every((suit) => suit === suits[0])) {
             const win = bet * 10;
-            return { combination: "Flush", win };
+            return { combination: "Flush", win, cards: [...cards] };
         }
 
         if (isConsecutive(ranks)) {
             const win = bet * 7;
-            return { combination: "Straight", win };
+            return { combination: "Straight", win, cards: [...cards] };
         }
 
         if (Object.values(rankCounts).includes(3)) {
             const win = bet * 3;
-            return { combination: "Three of a Kind", win };
+            const threeCards = getCombinationCards((card) => rankCounts[card.symbol.slice(0, -1)] === 3);
+            return { combination: "Three of a Kind", win, cards: threeCards };
         }
 
         if (Object.values(rankCounts).filter((count) => count === 2).length === 2) {
             const win = bet * 2;
-            return { combination: "Two Pair", win };
+            const twoPairCards = getCombinationCards((card) => rankCounts[card.symbol.slice(0, -1)] === 2);
+            return { combination: "Two Pair", win, cards: twoPairCards };
         }
 
         if (Object.values(rankCounts).includes(2)) {
@@ -68,14 +73,15 @@ const useWinCheck = () => {
             );
 
             if (highPair.length > 0) {
-                const win = bet ;
-                return { combination: "One Pair", win };
+                const win = bet;
+                const pairCards = getCombinationCards((card) => highPair.includes(card.symbol.slice(0, -1)));
+                return { combination: "One Pair", win, cards: pairCards };
             }
         }
 
-
-        return false
+        return false;
     };
+
 
     return { checkWinningCombination }
 

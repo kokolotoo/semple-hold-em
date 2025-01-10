@@ -35,7 +35,6 @@ const Cards = () => {
               onClick={() => stopCard(cart.symbol)}
               style={{
                 backgroundColor: isOpened ? 'grey' : cart.stopped ? 'red' : "green",
-                color: 'azure'
               }}
               disabled={isOpened}
             ><b> {cart.stopped ? 'Kept' : "Keep"}</b>

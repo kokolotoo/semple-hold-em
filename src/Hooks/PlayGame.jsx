@@ -14,11 +14,13 @@ const usePlayGame = () => {
     const play = () => {
 
         if (firstRow) {
-           
-            setWinCheckResult('')
-            const newCards = draftedCard()
-            setCurrentCards(newCards)
+            //първо раздаване
+            //обръща текущите карти
+            setCurrentCards(currentCards.map(item => {
+                return { ...item, flipped: false }
+            }));
 
+            //проверява залог и налични пари
             if (bet > money) {
                 alert("Not money")
                 return
@@ -28,38 +30,55 @@ const usePlayGame = () => {
                 return
             }
 
-            setMoney(prev => prev - bet)
+            //генерира нови карти
+            const newCards = draftedCard()
 
+            //Изчаква и нулира резултата за печалба
+            //обновява картите, актуализира парите и обръща картите
             setTimeout(() => {
+                setWinCheckResult('')
+                setCurrentCards(newCards)
+                setMoney(prev => prev - bet)
                 flipCards()
             }, 400)
 
+            //обновява бутоните за игра след като картите са раздадени
+            //показва текуща проверка за потенциална печалба
+            // автоматично стопира картите за потенциална печалба
             setTimeout(() => {
                 setIsOpened(prev => !prev)
-            }, 1500)
+                console.log(checkWinningCombination(newCards, bet).cards);
 
+                //тук ще е логиката за атоматично стопиране
+            }, 1200)
 
         } else {
+            //второ раздаване
+
+            //обръща картите с изключение на стопираните и ги актуализира 
             const newCards = currentCards.map(item => {
                 if (!item.stopped) {
                     return { ...item, flipped: !item.flipped }
                 }
                 return item
             })
-
             setCurrentCards(newCards);
 
+            //оставя стопираните карти и генерира нови при тях
             const newRowCards = generateNewRowCards(newCards)
 
+            //Актуализира текущите с новогенерираните и обновява бутоните
             setTimeout(() => {
                 setCurrentCards(newRowCards);
+                setIsOpened(prev => !prev)
             }, 200)
 
+            //обръща картите
             setTimeout(() => {
                 flipCards();
-                setIsOpened(prev => !prev)
             }, 400)
 
+            //актуализира резултата за печалба
             setTimeout(() => {
                 setWinCheckResult(checkWinningCombination(newRowCards, bet));
                 console.log(checkWinningCombination(newRowCards, bet));
@@ -68,6 +87,7 @@ const usePlayGame = () => {
         setFirstRow(prev => !prev)
     }
 
+    //функция за обръщане на картите
     const flipCards = (index = 0) => {
         if (index >= currentCards.length) return; // Спри, когато всички карти са обработени
 
@@ -83,8 +103,8 @@ const usePlayGame = () => {
         setTimeout(() => flipCards(index + 1), 150); // Обработи следващата карта след 200ms
     };
 
+    //функция за генериране на нови карти като оставя стопираните на същите места стопираните
     const generateNewRowCards = (current) => {
-
         const newRowCards = current.map((item) => {
             if (item.stopped) {
                 return item;
@@ -99,10 +119,8 @@ const usePlayGame = () => {
                 return newCard
             }
         });
-
         return newRowCards
     }
-
 
     return { play }
 }

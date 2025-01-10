@@ -23,7 +23,9 @@ const PlayButtons = () => {
         if (winCheckResult) {
             setMoney(prev => prev + winCheckResult.win)
             setWinCheckResult('')
-            setCurrentCards(draftedCard())
+            setCurrentCards(currentCards.map(item => {
+                return { ...item, flipped: false }
+            }));
         }
     }
 
@@ -63,9 +65,19 @@ const PlayButtons = () => {
 
                     <button className='red button'>Red</button>
                     <button className='black button'>Black</button>
-                    <button className='get button' onClick={getMoney}>Get</button>
-                    <button className='double button'>Double</button>
+
+                    <button className='get button'
+                        onClick={getMoney}
+                        style={{ backgroundColor: winCheckResult ? 'lightgreen' : 'lightgray' }}
+                    >Get</button>
+
+                    <button className='double button'
+                        style={{ backgroundColor: winCheckResult ? 'lightgreen' : 'lightgray' }}
+                    >Double</button>
+
                     <button
+                        disabled={winCheckResult ? true : false}
+                        style={{backgroundColor: winCheckResult? 'gray': 'darkgreen'}}
                         onClick={play}
                         className='playButton'
                     >Play</button>
