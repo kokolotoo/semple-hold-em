@@ -4,6 +4,9 @@ import DataContext from '../../Context/DataContext';
 import { useLocation } from "react-router-dom"
 import './game.css'
 import usePlayGame from '../../Hooks/PlayGame';
+import { GiPokerHand } from "react-icons/gi";
+import audioFile from '../../assets/button-sound.mp3';
+
 const PlayButtons = () => {
     const { setIsOpened, firstRow, setFirstRow, bet, setBet, winCheckResult,
         setWinCheckResult,
@@ -14,6 +17,7 @@ const PlayButtons = () => {
     const [gameIsOpen, setGameIsOpen] = useState(false)
     const route = location.pathname.startsWith('/game')
     const { play } = usePlayGame()
+    const audio = new Audio(audioFile);
 
     useEffect(() => {
         setGameIsOpen(route)
@@ -39,12 +43,19 @@ const PlayButtons = () => {
 
                         <button className='bet- button'
                             disabled={bet === 1 ? true : false}
-                            onClick={() => setBet(prev => prev - 1)}
+                            onClick={() => {
+                                setBet(prev => prev - 1)
+                                audio.play();
+                            }}
                         >Bet - 1</button>
 
                         <button className='bet- button'
                             disabled={bet < 5 ? true : false}
-                            onClick={() => setBet(prev => prev - 5)}
+                            onClick={() => {
+                                setBet(prev => prev - 5)
+                                audio.play();
+                            }
+                            }
                         >Bet - 5</button>
 
                     </section>
@@ -53,12 +64,19 @@ const PlayButtons = () => {
 
                         <button className='bet+ button'
                             disabled={money <= bet ? true : false}
-                            onClick={() => setBet(prev => prev + 1)}
+                            onClick={() => {
+                                setBet(prev => prev + 1)
+                                audio.play();
+                            }}
                         >Bet + 1</button>
 
                         <button className='bet+ button'
                             disabled={money <= bet ? true : false}
-                            onClick={() => setBet(prev => prev + 5)}
+                            onClick={() => {
+                                setBet(prev => prev + 5)
+                                audio.play();
+                            }
+                            }
                         >Bet + 5</button>
 
                     </section>
@@ -77,13 +95,18 @@ const PlayButtons = () => {
 
                     <button
                         disabled={winCheckResult ? true : false}
-                        style={{backgroundColor: winCheckResult? 'gray': 'darkgreen'}}
+                        style={{ backgroundColor: winCheckResult ? 'gray' : 'darkgreen' }}
                         onClick={play}
                         className='playButton'
                     >Play</button>
                 </div >
             )
-            : null
+            :
+            (
+                <h2 className='info-text'>
+                    <GiPokerHand className='game-pic' /> Poker slot game
+                </h2>
+            )
 
     );
 }

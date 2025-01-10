@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Vinyl&display=swap');
+
 .info-board {
     display: flex;
     justify-content: space-around;
@@ -40,7 +42,7 @@
 .playButton {
     padding: 20px 5px 20px 5px;
     border-radius: 5px;
-    
+
     color: bisque;
     font-size: large;
     transition: 0.2s;
@@ -53,7 +55,7 @@
 
 .button {
     padding: 5px 15px 5px 15px;
-    background-color:lightgray;
+    background-color: lightgray;
     border-radius: 3px;
     transition: 0.5s;
 }
@@ -74,6 +76,19 @@
     display: flex;
     flex-direction: column;
     row-gap: 5px;
+}
+
+.info-text {
+    text-align: center;
+    margin-bottom: 3%;
+    font-family: 'rubik vinyl';
+    letter-spacing: 2px;
+    color: rgb(0, 247, 255);
+}
+
+.game-pic {
+    font-size: 60px;
+    color: rgb(162, 230, 241);
 }
 
 @media(max-width: 1160px) {
