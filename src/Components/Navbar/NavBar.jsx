@@ -3,7 +3,7 @@ import './navBar.css';
 import { useEffect, useState } from "react";
 
 // Импортира аудиото
-import audioFile from './about-sound.mp3'; 
+import audioFile from '../../assets/about-sound.mp3'; 
 
 export default function Navbar() {
 

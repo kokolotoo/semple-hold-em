@@ -124,6 +124,10 @@
         row-gap: 10px;
         margin-bottom: 25px;
     }
+
+    .betButtons {
+        row-gap: 15px;
+    }
 }
 
 @media(max-width: 390px) {
@@ -156,4 +160,5 @@
     .double {
         padding: 5px 1px 5px 1px;
     }
+
 }

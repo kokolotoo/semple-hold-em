@@ -47,3 +47,12 @@ button {
 
    }
 }
+
+@media(max-width: 720px) {
+   .game-board {
+
+      height: 88vh;
+      width: 100vw;
+
+   }
+}

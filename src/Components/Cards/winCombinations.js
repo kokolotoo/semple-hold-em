@@ -1,3 +1,6 @@
+import audioFile from '../../assets/win.wav'
+
+
 const winningCombinations = [
     { name: "Royal Flush", winMultiplier: 30 }, // Най-високата печалба
     { name: "Straight Flush", winMultiplier: 25 },
