@@ -6,7 +6,7 @@ import { createContext, useState, useEffect } from 'react';
 const DataContext = createContext({});
 
 export const DataProvider = ({ children }) => {
-    const [money, setMoney] = useState(20)
+    const [money, setMoney] = useState(200)
     const [bet, setBet] = useState(1)
     const deckOfCards = generateDeck()
     const [isOpened, setIsOpened] = useState(true)
