@@ -13,8 +13,8 @@ export const DataProvider = ({ children }) => {
     const [firstRow, setFirstRow] = useState(true) // за първо и второ раздаване
     const [currentCards, setCurrentCards] = useState([]) // текущи карти
     const [winCheckResult, setWinCheckResult] = useState('') // резултата от проверка за победа. Използва се и за активност на бутони
+    const [disablePlayButton, setDisablePlayButton] = useState(false)
 
-  
 
     useEffect(() => {
         setCurrentCards(draftedCard())
@@ -26,7 +26,8 @@ export const DataProvider = ({ children }) => {
             money, setMoney, bet, setBet, deckOfCards,
             isOpened, setIsOpened,
             firstRow, setFirstRow, currentCards, setCurrentCards,
-            draftedCard, winCheckResult, setWinCheckResult
+            draftedCard, winCheckResult, setWinCheckResult,
+            disablePlayButton, setDisablePlayButton
         }}>
             {children}
         </DataContext.Provider>
@@ -35,6 +36,6 @@ export const DataProvider = ({ children }) => {
 
 export default DataContext;
 
-
+// import { DataContext } from "ххххххх";
 //import { useContext } from "react";
 //const { name of something } = useContext(DataContext);

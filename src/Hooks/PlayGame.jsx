@@ -15,7 +15,8 @@ const usePlayGame = () => {
         deckOfCards,
         money,
         setMoney,
-        setWinCheckResult
+        setWinCheckResult,
+        setDisablePlayButton
     } = useContext(DataContext);
 
     const { checkWinningCombination } = useWinCheck();
@@ -40,27 +41,27 @@ const usePlayGame = () => {
         setFirstRow(prev => !prev);
     };
 
-    // Първо раздаване
+   
     const handleFirstRow = async () => {
-        // Обръщане на текущите карти
+        // Обръщане на текущите карти и обновяване на състоянието
+        setDisablePlayButton(prev => !prev)
         setCurrentCards(prev => prev.map(item => ({ ...item, flipped: false })));
-
-        // Генериране на нови карти и обновяване на състоянието
+        setWinCheckResult('');
+        setMoney(prev => prev - bet);
         const newCards = draftedCard();
-        setTimeout(() => {
-            setWinCheckResult('');
-            setCurrentCards(newCards);
-            setMoney(prev => prev - bet);
-        }, 400);
+
+        await delay(200);
+
+        // Генериране на нови карти 
+        setCurrentCards(newCards);
 
         // Обръщане на картите с анимация
-        await delay(400);
+        await delay(100);
         await flipCards(newCards);
 
         // Проверка за печалба
         await delay(100);
         const result = checkWinningCombination(newCards, bet);
-        console.log(result);
 
         // Автоматично стопиране на карти
         if (result) {
@@ -74,10 +75,12 @@ const usePlayGame = () => {
         }
 
         setIsOpened(prev => !prev);
+        setDisablePlayButton(prev => !prev)
     };
 
     // Второ раздаване
     const handleSecondRow = async () => {
+        setDisablePlayButton(prev => !prev)
         const flippedCards = currentCards.map(card =>
             !card.stopped ? { ...card, flipped: !card.flipped } : card
         );
@@ -96,6 +99,7 @@ const usePlayGame = () => {
         await delay(200);
         const result = checkWinningCombination(newRowCards, bet);
         setWinCheckResult(result);
+        setDisablePlayButton(prev => !prev)
         console.log(result);
     };
 

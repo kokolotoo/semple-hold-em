@@ -4,9 +4,18 @@
     display: flex;
     justify-content: space-around;
     padding: 10px;
-    background-color: rgb(88, 122, 109);
+    background-color: rgb(66, 95, 84);
 
+    samp {
+        color: aquamarine;
+    }
+
+    b {
+        color: beige;
+        font-size: larger;
+    }
 }
+
 
 .game {
     height: 100%;
@@ -26,9 +35,53 @@
 
 .game-info {
     width: 100%;
-    height: 150px;
+    height: 40%;
     background-color: rgb(133, 92, 245);
+
+    padding: 9px;
+    margin-top: 1%;
 }
+
+.game-info legend {
+    font-size: larger;
+    color: rgb(243, 242, 236);
+}
+
+
+
+/*                table            */
+
+table {
+    border-collapse: collapse;
+    border: 2px solid rgb(26, 22, 22);
+    font-family: sans-serif;
+    width: 80%;
+    margin: auto;
+    letter-spacing: 1px;
+}
+
+th,
+td {
+    border: 1px solid rgb(34, 33, 33);
+
+}
+
+td:last-of-type {
+    text-align: center;
+}
+
+
+
+tfoot th {
+    text-align: right;
+}
+
+tfoot td {
+    font-weight: bold;
+}
+
+/*                end table               */
+
 
 .button-board {
     margin-bottom: 2%;
@@ -42,7 +95,6 @@
 .playButton {
     padding: 20px 5px 20px 5px;
     border-radius: 5px;
-
     color: bisque;
     font-size: large;
     transition: 0.2s;
@@ -165,16 +217,33 @@
 
 @media only screen and (max-height: 300px) {
     .section {
-            display: flex;
-            flex-direction: row;
-            row-gap: 10px;
-            margin-bottom: 2px;
-        }
-    
-        .betButtons {
-            row-gap: 1px;
-        }
-          .playButton {
-              padding: 4px 1px 4px 1px;
-          }
+        display: flex;
+        flex-direction: row;
+        row-gap: 10px;
+        margin-bottom: 2px;
+    }
+
+    .betButtons {
+        row-gap: 1px;
+    }
+
+    .playButton {
+        padding: 4px 1px 4px 1px;
+    }
+}
+
+@media only screen and (max-height: 920px) {
+    .game-info {
+        height: 80%;
+    }
+
+    table {
+        height: 90%;
+    }
+}
+
+@media only screen and (max-height: 720px) {
+    .game-info {
+        display: none;
+    }
 }

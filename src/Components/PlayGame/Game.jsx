@@ -3,28 +3,30 @@ import Cards from '../Cards/Cards'
 import './game.css'
 import DataContext from '../../Context/DataContext'
 import { useContext } from 'react'
+import Combination from './Combination'
 
 const Game = () => {
 
     const { money, setMoney, bet, setBet, winCheckResult } = useContext(DataContext)
+    
 
     return (
-        <div className='game'>
-            <div className='info-board'>
-                <samp>haa</samp>
-                <aside>Bet: <b style={{ color: 'white' }}>{bet}</b></aside>
-                <span>Credit: <b style={{ color: 'white' }}>{money}</b></span>
-            </div>
+        <main className='game'>
+            <header className='info-board'>
+                <samp>Bet: <b>{bet}</b></samp>
+                <samp> Current win: <b>{winCheckResult.win ? winCheckResult.win : 0}</b> </samp>
+                <samp>Credit: <b>{money}</b></samp>
+            </header>
 
-            <div className="game-info">
-                <h2>{winCheckResult.combination}</h2>
-                <h1>{winCheckResult.win}</h1>
+            <fieldset className="game-info">
+                <legend>Win combination</legend>
+               <Combination />
+            </fieldset>
 
-            </div>
-            <div className="card-board">
+            <section className="card-board">
                 <Cards />
-            </div>
-        </div>
+            </section>
+        </main>
     )
 }
 

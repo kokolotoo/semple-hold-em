@@ -10,7 +10,7 @@ const Cards = () => {
 
   const { isOpened, currentCards, setCurrentCards } = useContext(DataContext);
 
-  
+
 
   const stopCard = (current) => {
     const newCards = currentCards.map(item => {
@@ -19,32 +19,32 @@ const Cards = () => {
       }
       return item
     })
- 
+
 
     setCurrentCards(newCards)
   }
 
   return (
-    <div>
-      <div className='cards'>
-        {currentCards.map((cart, i) =>
-          <section key={i} className='single-cart'>
-            <FlippedCards cart={cart} /><hr />
-            <button
-              className='play-buttons'
-              onClick={() => stopCard(cart.symbol)}
-              style={{
-                backgroundColor: isOpened ? 'grey' : cart.stopped ? 'red' : "green",
-              }}
-              disabled={isOpened}
-            ><b> {cart.stopped ? 'Kept' : "Keep"}</b>
-            </button>
-          </section>
 
-        )}
-      </div>
+    <div className='cards'>
+      {currentCards.map((cart, i) =>
+        <section key={i} className='single-cart'>
+          <FlippedCards cart={cart} /><hr />
+          <button
+            className='play-buttons'
+            onClick={() => stopCard(cart.symbol)}
+            style={{
+              backgroundColor: isOpened ? 'grey' : cart.stopped ? 'red' : "green",
+            }}
+            disabled={isOpened}
+          ><b> {cart.stopped ? 'Kept' : "Keep"}</b>
+          </button>
+        </section>
 
+      )}
     </div>
+
+
   );
 }
 

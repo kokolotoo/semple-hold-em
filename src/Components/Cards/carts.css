@@ -12,7 +12,6 @@
 
 .cards section button {
     width: 150px;
-    margin-top: 5px;
     padding: 5px;
     color: aliceblue;
     transition: 0.3s;
@@ -84,6 +83,10 @@
     .cards {
         column-gap: 10px;
     }
+
+    .single-cart {
+        row-gap: 10px;
+    }
 }
 
 
@@ -122,7 +125,7 @@
 @media(max-width: 425px) {
 
     .cards img {
-        margin-left: 5px;
+        margin-left: 1px;
         width: 45px;
         height: 100px;
 
@@ -136,6 +139,11 @@
 
     .cards {
         column-gap: 10px;
+    }
+
+    .single-cart {
+
+        row-gap: 5px;
     }
 }
 
@@ -196,5 +204,11 @@
 
     .cards {
         column-gap: 23px;
+    }
+}
+
+@media only screen and (max-height: 885px) {
+    .single-cart {
+        row-gap: 2px;
     }
 }

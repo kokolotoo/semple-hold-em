@@ -9,7 +9,7 @@ import audioFile from '../../assets/button-sound.mp3';
 
 const PlayButtons = () => {
     const { setIsOpened, firstRow, setFirstRow, bet, setBet, winCheckResult,
-        setWinCheckResult,
+        setWinCheckResult, disablePlayButton,
         currentCards, setCurrentCards, draftedCard, deckOfCards, money, setMoney
     } = useContext(DataContext);
 
@@ -99,8 +99,11 @@ const PlayButtons = () => {
                     </section>
 
                     <button
-                        disabled={winCheckResult ? true : false}
-                        style={{ backgroundColor: winCheckResult ? 'gray' : 'darkgreen' }}
+                        disabled={
+                            disablePlayButton? true : 
+                            winCheckResult ? true : false
+                        }
+                        style={{ backgroundColor: (disablePlayButton || winCheckResult) ? 'gray' : 'darkgreen' }}
                         onClick={play}
                         className='playButton'
                     >Play</button>
