@@ -22,17 +22,17 @@ const usePlayGame = () => {
     const { checkWinningCombination } = useWinCheck();
 
     const play = async () => {
-        if (bet > money) {
-            alert("Not enough money");
-            return;
-        }
-
-        if (bet === 0) {
-            alert("Place your bet");
-            return;
-        }
 
         if (firstRow) {
+            if (bet > money) {
+                alert("Not enough money. Restart app");
+                return;
+            }
+
+            if (bet === 0) {
+                alert("Place your bet");
+                return;
+            }
             await handleFirstRow();
         } else {
             await handleSecondRow();
@@ -41,7 +41,7 @@ const usePlayGame = () => {
         setFirstRow(prev => !prev);
     };
 
-   
+
     const handleFirstRow = async () => {
         // Обръщане на текущите карти и обновяване на състоянието
         setDisablePlayButton(prev => !prev)

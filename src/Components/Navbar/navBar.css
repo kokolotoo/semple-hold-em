@@ -26,6 +26,10 @@
     gap: 25px;
 }
 
+.header__item {
+    cursor: pointer;
+}
+
 .header__item a {
     text-decoration: none;
     color: #fff;
@@ -58,7 +62,7 @@
         display: none;
         flex-direction: column;
         position: absolute;
-        height: 20vh;
+        height: 45vh;
         width: 20%;
         top: 50px;
         right: 0;
@@ -80,22 +84,27 @@
 }
 
 @media screen and (max-width: 750px) {
-   
+
     .header__menu {
-        height: 25vh;
-        width: 40%;
+        height: 45vh;
+        width: 35%;
     }
 
-    
+
 }
 
 body.scroll-lock {
     overflow: hidden;
 }
-@media only screen and (max-height: 300px) {
+
+
+
+@media only screen and (max-height: 670px) {
+
+
     .header__menu {
-            height: 25vh;
-            width: 80%;
-            flex-direction: row;
-        }
+        flex-direction: row;
+        height: 25vh;
+        width: 95%;
+    }
 }

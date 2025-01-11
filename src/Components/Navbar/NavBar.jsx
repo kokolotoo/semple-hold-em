@@ -43,7 +43,8 @@ export default function Navbar() {
                 <Link to='/about' className='header__logo' onClick={playAudio}>
                     About
                 </Link>
-
+                <li className='header__item'>Save Game</li>
+                <li className='header__item'>Load Game</li>
                 <li className='header__item' onClick={closeMenu}><Link to='/game'>Play Game</Link></li>
             </ul>
 

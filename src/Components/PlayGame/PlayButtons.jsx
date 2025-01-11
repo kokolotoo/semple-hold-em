@@ -42,7 +42,7 @@ const PlayButtons = () => {
                     <section className='betButtons'>
 
                         <button className='bet- button'
-                            disabled={bet === 1 ? true : false}
+                            disabled={bet <= 1 ? true : false}
                             onClick={() => {
                                 setBet(prev => prev - 1)
                                 audio.play();
@@ -89,19 +89,21 @@ const PlayButtons = () => {
 
                     <section className='get-double section'>
                         <button className='get button'
+                            disabled={winCheckResult ? false : true}
                             onClick={getMoney}
                             style={{ backgroundColor: winCheckResult ? 'lightgreen' : 'lightgray' }}
                         >Get</button>
 
                         <button className='double button'
+                            disabled={winCheckResult ? false : true}
                             style={{ backgroundColor: winCheckResult ? 'lightgreen' : 'lightgray' }}
                         >Double</button>
                     </section>
 
                     <button
                         disabled={
-                            disablePlayButton? true : 
-                            winCheckResult ? true : false
+                            disablePlayButton ? true :
+                                winCheckResult ? true : false
                         }
                         style={{ backgroundColor: (disablePlayButton || winCheckResult) ? 'gray' : 'darkgreen' }}
                         onClick={play}
