@@ -265,10 +265,22 @@ tfoot td {
 
 }
 
-@media only screen and (max-height: 590px) {
+@media only screen and (max-height: 580px) {
     .game-info {
         height: 60%;
     }
+}
+
+@media only screen and (max-height: 800px) {
+
+    table {
+        font-size: 10px;
+        letter-spacing: 3px;
+        font-family:'Courier New', Courier, monospace;        
+    }
+}
+
+@media only screen and (max-height: 470px) {
 
     table {
         display: none;

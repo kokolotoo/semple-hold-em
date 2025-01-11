@@ -6,16 +6,25 @@ import { useState, useEffect, useContext } from 'react';
 
 
 const DoubleButtonCards = () => {
-    const { isOpened, currentCards,
-        setCurrentCards, setDoubleButtonKey
+    const { deckOfCards, choiceColorCard, setMoney,
+        setChoiceColorCard, setDoubleButtonKey, winCheckResult, setWinCheckResult
     } = useContext(DataContext);
+
+    //const [currentWin, setCurrentWin] = useState(winCheckResult.win)
+
+    const getWin = () => {
+
+
+
+        setMoney(prev => prev + currentWin)
+        setCurrentWin(0)
+        setDoubleButtonKey(false)
+    }
 
     return (
         <div>
-            test
-            <button 
-            onClick={()=>setDoubleButtonKey(prev => !prev)}
-            >Go back</button>
+
+            <button>Go back</button>
         </div>
     );
 }

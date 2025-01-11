@@ -211,4 +211,8 @@
     .single-cart {
         row-gap: 2px;
     }
+
+    .cards button {
+        font-size: 10px;
+    }
 }

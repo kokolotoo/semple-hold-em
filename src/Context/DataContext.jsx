@@ -1,6 +1,6 @@
 
 import { generateDeck, draftedCard } from '../Components/Cards/draftedCard';
-import { createContext, useState, useEffect } from 'react';
+import { createContext, useState, useEffect, useMemo } from 'react';
 
 
 const DataContext = createContext({});
@@ -8,13 +8,15 @@ const DataContext = createContext({});
 export const DataProvider = ({ children }) => {
     const [money, setMoney] = useState(200) //налични пари 
     const [bet, setBet] = useState(1)       //текущ залог
-    const deckOfCards = generateDeck()      //генерира тесте карти
+    const deckOfCards = useMemo(() => generateDeck(), []);//генерира тесте карти
     const [isOpened, setIsOpened] = useState(true) // за състояние и цвят на стоп бутони 
     const [firstRow, setFirstRow] = useState(true) // за първо и второ раздаване
     const [currentCards, setCurrentCards] = useState([]) // текущи карти
     const [winCheckResult, setWinCheckResult] = useState('') // резултата от проверка за победа. Използва се и за активност на бутони
     const [disablePlayButton, setDisablePlayButton] = useState(false) // изключва Play бутона по време на раздаване
     const [doubleButtonKey, setDoubleButtonKey] = useState(false) // за Double бутона- превключва между карти (за игра / за удвояване)
+    const [choiceColorCard, setChoiceColorCard] = useState("") // избира карта червена или черна
+   // const [currentWin, setCurrentWin] = useState(winCheckResult.win) // За текуща печалба при допчене
 
     useEffect(() => {
         setCurrentCards(draftedCard())
@@ -28,7 +30,8 @@ export const DataProvider = ({ children }) => {
             firstRow, setFirstRow, currentCards, setCurrentCards,
             draftedCard, winCheckResult, setWinCheckResult,
             disablePlayButton, setDisablePlayButton,
-            doubleButtonKey, setDoubleButtonKey
+            doubleButtonKey, setDoubleButtonKey, choiceColorCard,
+            setChoiceColorCard
         }}>
             {children}
         </DataContext.Provider>

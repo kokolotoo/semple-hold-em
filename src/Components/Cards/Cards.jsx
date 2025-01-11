@@ -31,7 +31,6 @@ const Cards = () => {
         <section key={i} className='single-cart'>
           <FlippedCards cart={cart} /><hr />
           <button
-            className='play-buttons'
             onClick={() => stopCard(cart.symbol)}
             style={{
               backgroundColor: isOpened ? 'grey' : cart.stopped ? 'red' : "green",
