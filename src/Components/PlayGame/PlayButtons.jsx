@@ -9,7 +9,7 @@ import audioFile from '../../assets/button-sound.mp3';
 
 const PlayButtons = () => {
     const { setIsOpened, firstRow, setFirstRow, bet, setBet, winCheckResult,
-        setWinCheckResult, disablePlayButton,
+        setWinCheckResult, disablePlayButton, setDoubleButtonKey,
         currentCards, setCurrentCards, draftedCard, deckOfCards, money, setMoney
     } = useContext(DataContext);
 
@@ -27,6 +27,7 @@ const PlayButtons = () => {
         if (winCheckResult) {
             setMoney(prev => prev + winCheckResult.win)
             setWinCheckResult('')
+            setDoubleButtonKey(false)
             setCurrentCards(currentCards.map(item => {
                 return { ...item, flipped: false }
             }));
@@ -95,6 +96,7 @@ const PlayButtons = () => {
                         >Get</button>
 
                         <button className='double button'
+                            onClick={() => setDoubleButtonKey(prev => !prev)}
                             disabled={winCheckResult ? false : true}
                             style={{ backgroundColor: winCheckResult ? 'lightgreen' : 'lightgray' }}
                         >Double</button>

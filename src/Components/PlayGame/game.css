@@ -194,6 +194,8 @@ tfoot td {
     .double {
         padding: 6px 1px 6px 1px;
     }
+
+    
 }
 
 @media(max-width: 361px) {
@@ -242,7 +244,7 @@ tfoot td {
     }
 }
 
-@media only screen and (max-height: 720px) {
+@media only screen and (max-height: 620px) {
     .game-info {
         display: none;
     }

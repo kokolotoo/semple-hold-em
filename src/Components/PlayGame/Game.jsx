@@ -4,17 +4,18 @@ import './game.css'
 import DataContext from '../../Context/DataContext'
 import { useContext } from 'react'
 import Combination from './Combination'
+import DoubleButtonCards from '../Cards/DoubleButtonCards'
 
 const Game = () => {
 
-    const { money, bet, winCheckResult } = useContext(DataContext)
+    const { money, bet, winCheckResult, doubleButtonKey } = useContext(DataContext)
 
 
     return (
         <main className='game'>
             <header className='info-board'>
                 <samp>Bet: <b>{bet}</b></samp>
-                <samp> Current win: <b>{
+                <samp>Win: <b>{
                     winCheckResult.win ? winCheckResult.win : 0
                 }</b></samp>
                 <samp>Credit: <b>{money}</b></samp>
@@ -22,11 +23,12 @@ const Game = () => {
 
             <fieldset className="game-info">
                 <legend>Win combination</legend>
-                <Combination />
+                {doubleButtonKey ? <DoubleButtonCards /> :<Combination />}
             </fieldset>
 
             <section className="card-board">
-                <Cards />
+                {doubleButtonKey ?  null : <Cards />}
+                
             </section>
         </main>
     )
