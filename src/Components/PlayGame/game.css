@@ -194,8 +194,6 @@ tfoot td {
     .double {
         padding: 6px 1px 6px 1px;
     }
-
-    
 }
 
 @media(max-width: 361px) {
@@ -244,8 +242,35 @@ tfoot td {
     }
 }
 
-@media only screen and (max-height: 620px) {
+@media only screen and (max-height: 760px) {
     .game-info {
+        max-height: 50%;
+    }
+
+    table {
+        width: 100%;
+    }
+
+}
+
+@media only screen and (max-height: 680px) {
+    .game-info {
+        max-height: 50%;
+    }
+
+    table {
+        width: 100%;
+        font-size: small;
+    }
+
+}
+
+@media only screen and (max-height: 590px) {
+    .game-info {
+        height: 60%;
+    }
+
+    table {
         display: none;
     }
 }
