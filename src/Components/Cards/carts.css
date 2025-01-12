@@ -22,12 +22,33 @@
     row-gap: 20px;
 }
 
+
+
+.double {
+
+    flex-wrap: nowrap;
+    overflow: hidden;
+}
+
+.react-card-flip {
+    flex: 0 0 auto;
+    margin-left: -120px;
+}
+
+.react-card-flip:first-child {
+    margin-left: 0;
+}
+
 /* Медийни заявки с общи правила */
 @media(max-width: 1160px) {
 
     .cards img,
     .cards button {
         max-width: 110px;
+    }
+
+    .react-card-flip {
+        margin-left: -100px;
     }
 }
 
@@ -42,9 +63,7 @@
         column-gap: 20px;
     }
 
-    .draftedCard-section img {
-        max-width: 180px;
-    }
+
 }
 
 @media(max-width: 864px) {
@@ -52,6 +71,10 @@
     .cards img,
     .cards button {
         max-width: 90px;
+    }
+
+    .react-card-flip {
+        margin-left: -80px;
     }
 }
 
@@ -86,6 +109,10 @@
     .single-cart {
         row-gap: 10px;
     }
+
+    .react-card-flip {
+        margin-left: -60px;
+    }
 }
 
 @media(max-width: 558px) {
@@ -116,6 +143,10 @@
     .cards {
         column-gap: 12px;
     }
+
+    .react-card-flip {
+        margin-left: -50px;
+    }
 }
 
 @media(max-width: 425px) {
@@ -135,6 +166,10 @@
 
     .single-cart {
         row-gap: 5px;
+    }
+
+    .react-card-flip {
+        margin-left: -35px;
     }
 }
 
@@ -197,11 +232,5 @@
 
     .cards button {
         font-size: 10px;
-    }
-}
-
-@media only screen and (max-height: 682px) {
-    .draftedCard-section img {
-        max-width: 80px;
     }
 }

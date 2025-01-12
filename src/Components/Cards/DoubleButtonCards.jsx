@@ -9,7 +9,7 @@ import FlippedCards from './FlippedCards';
 
 const DoubleButtonCards = () => {
     const { deckOfCards } = useContext(DataContext);
-
+    const [winMessage, setWinMessage] = useState('')
     const generateCard = () => {
         const card = deckOfCards[Math.floor(Math.random() * deckOfCards.length)];
         return card
@@ -19,20 +19,18 @@ const DoubleButtonCards = () => {
 
 
     return (
-        <div>
+        <div className='cards double'>
             {playCards.map((cart, i) =>
-                <section key={i} className='draftedCard-section'>
-                    <FlippedCards cart={cart}
-                        className={i > 0 ? 'nex-cart' : null}
-                    /><hr />
-                </section>
+
+                <FlippedCards cart={cart} key={i} />
 
             )}
-
+            <b style={{ fontSize: 'xx-large' }}>{winMessage}</b>
             <RedBlackBtns
                 generateCard={generateCard}
-                playCards={setPlayCards}
+                playCards={playCards}
                 setPlayCards={setPlayCards}
+                setWinMessage={setWinMessage}
             />
         </div>
     );
