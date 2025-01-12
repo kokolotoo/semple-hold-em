@@ -34,7 +34,7 @@ export default function Navbar() {
             data: money
         }
         localStorage.setItem("texas-hold'em", JSON.stringify(data))
-        messageApi.info('Game is saved !');
+        messageApi.info('Game is Saved !');
     }
 
     const loadGame = () => {
@@ -45,7 +45,7 @@ export default function Navbar() {
         if (localStorage.getItem("texas-hold'em")) {
             const savedData = JSON.parse(localStorage.getItem("texas-hold'em"))
             setMoney(savedData.data)
-            messageApi.info('Game is loaded');
+            messageApi.info('Game is Loaded');
         }
     }
 

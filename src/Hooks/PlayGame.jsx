@@ -100,7 +100,7 @@ const usePlayGame = () => {
         const result = checkWinningCombination(newRowCards, bet);
         setWinCheckResult(result);
         setDisablePlayButton(prev => !prev)
-        console.log(result);
+        //console.log(result);
     };
 
     // Функция за обръщане на карти с анимация
