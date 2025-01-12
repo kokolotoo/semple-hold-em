@@ -2,29 +2,38 @@ import React from 'react';
 import './carts.css'
 import DataContext from '../../Context/DataContext';
 import { useState, useEffect, useContext } from 'react';
+import RedBlackBtns from '../PlayGame/Buttons/RedBlackBtns';
+import FlippedCards from './FlippedCards';
 
 
 
 const DoubleButtonCards = () => {
-    const { deckOfCards, choiceColorCard, setMoney,
-        setChoiceColorCard, setDoubleButtonKey, winCheckResult, setWinCheckResult
-    } = useContext(DataContext);
+    const { deckOfCards } = useContext(DataContext);
 
-    //const [currentWin, setCurrentWin] = useState(winCheckResult.win)
-
-    const getWin = () => {
-
-
-
-        setMoney(prev => prev + currentWin)
-        setCurrentWin(0)
-        setDoubleButtonKey(false)
+    const generateCard = () => {
+        const card = deckOfCards[Math.floor(Math.random() * deckOfCards.length)];
+        return card
     }
+
+    const [playCards, setPlayCards] = useState([generateCard()])
+
 
     return (
         <div>
+            {playCards.map((cart, i) =>
+                <section key={i} className='draftedCard-section'>
+                    <FlippedCards cart={cart}
+                        className={i > 0 ? 'nex-cart' : null}
+                    /><hr />
+                </section>
 
-            <button>Go back</button>
+            )}
+
+            <RedBlackBtns
+                generateCard={generateCard}
+                playCards={setPlayCards}
+                setPlayCards={setPlayCards}
+            />
         </div>
     );
 }

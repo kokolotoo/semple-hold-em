@@ -50,7 +50,7 @@ const usePlayGame = () => {
         setMoney(prev => prev - bet);
         const newCards = draftedCard();
 
-        await delay(200);
+        await delay(300);
 
         // Генериране на нови карти 
         setCurrentCards(newCards);
@@ -90,10 +90,10 @@ const usePlayGame = () => {
         const newRowCards = generateNewRowCards(flippedCards);
         await delay(200);
 
-        setCurrentCards(newRowCards);
+        await setCurrentCards(newRowCards);
         setIsOpened(prev => !prev);
 
-        await delay(400);
+        await delay(500);
         await flipCards(newRowCards);
 
         await delay(200);

@@ -3,19 +3,29 @@ import '../game.css'
 import { useContext } from "react";
 import DataContext from '../../../Context/DataContext';
 
-const RedBlackBtns = () => {
+const RedBlackBtns = ({ generatedCard, playCards, setPlayCards }) => {
 
-    const { setChoiceColorCard, doubleButtonKey } = useContext(DataContext);
+    const { doubleButtonKey, setMoney, winCheckResult, setWinCheckResult } = useContext(DataContext);
+
+    const checkForWin = async (color) => {
+        setPlayCards(prev => prev.map(item => ({ ...item, flipped: color })))
+      
+
+
+        // Помощна функция за закъснение
+        const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+    }
+
 
     return (
         <section className='red-black section'>
             <button className='red button'
-                onClick={() => setChoiceColorCard('Red')}
+                onClick={() => checkForWin(true)}
                 disabled={doubleButtonKey ? false : true}
             >Red</button>
 
             <button className='black button'
-                onClick={() => setChoiceColorCard('Black')}
+                onClick={() => checkForWin(false)}
                 disabled={doubleButtonKey ? false : true}
             >Black</button>
 

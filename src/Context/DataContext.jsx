@@ -15,8 +15,8 @@ export const DataProvider = ({ children }) => {
     const [winCheckResult, setWinCheckResult] = useState('') // резултата от проверка за победа. Използва се и за активност на бутони
     const [disablePlayButton, setDisablePlayButton] = useState(false) // изключва Play бутона по време на раздаване
     const [doubleButtonKey, setDoubleButtonKey] = useState(false) // за Double бутона- превключва между карти (за игра / за удвояване)
-    const [choiceColorCard, setChoiceColorCard] = useState("") // избира карта червена или черна
-   // const [currentWin, setCurrentWin] = useState(winCheckResult.win) // За текуща печалба при допчене
+    
+   
 
     useEffect(() => {
         setCurrentCards(draftedCard())
@@ -30,8 +30,7 @@ export const DataProvider = ({ children }) => {
             firstRow, setFirstRow, currentCards, setCurrentCards,
             draftedCard, winCheckResult, setWinCheckResult,
             disablePlayButton, setDisablePlayButton,
-            doubleButtonKey, setDoubleButtonKey, choiceColorCard,
-            setChoiceColorCard
+            doubleButtonKey, setDoubleButtonKey
         }}>
             {children}
         </DataContext.Provider>

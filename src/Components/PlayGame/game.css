@@ -37,7 +37,7 @@
     width: 100%;
     height: 40%;
     background-color: rgb(133, 92, 245);
-
+    position: relative;
     padding: 9px;
     margin-top: 1%;
 }
@@ -112,16 +112,26 @@ tfoot td {
     transition: 0.5s;
 }
 
+.red-black {
+    width: 50%;
+    margin: auto;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
 .black {
     background-color: black;
-    padding: 15px 5px 15px 5px;
+
     color: aliceblue;
+    width: 50%;
 }
 
 .red {
     background-color: brown;
-    padding: 15px 5px 15px 5px;
+
     color: azure;
+    width: 50%;
 }
 
 .betButtons {
@@ -177,8 +187,16 @@ tfoot td {
         margin-bottom: 25px;
     }
 
+    .red-black {
+        flex-direction: row;
+    }
+
     .betButtons {
         row-gap: 15px;
+    }
+
+    .game-info {
+        padding: 1px;
     }
 }
 
@@ -193,6 +211,10 @@ tfoot td {
     .get,
     .double {
         padding: 6px 1px 6px 1px;
+    }
+
+    .red-black {
+        width: 90%;
     }
 }
 
@@ -232,9 +254,9 @@ tfoot td {
     }
 }
 
-@media only screen and (max-height: 920px) {
+@media only screen and (max-height: 1420px) {
     .game-info {
-        height: 80%;
+        height: 90%;
     }
 
     table {
@@ -244,13 +266,20 @@ tfoot td {
 
 @media only screen and (max-height: 760px) {
     .game-info {
-        max-height: 50%;
+        max-height: 80%;
     }
 
     table {
         width: 100%;
     }
 
+    .red-black {
+        width: 50%;
+        margin: auto;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
 }
 
 @media only screen and (max-height: 680px) {
@@ -276,7 +305,7 @@ tfoot td {
     table {
         font-size: 10px;
         letter-spacing: 3px;
-        font-family:'Courier New', Courier, monospace;        
+        font-family: 'Courier New', Courier, monospace;
     }
 }
 

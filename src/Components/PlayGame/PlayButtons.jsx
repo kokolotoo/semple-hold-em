@@ -27,7 +27,6 @@ const PlayButtons = () => {
                 <div className="button-board" >
                     <DecrementBtns />
                     <IncrementBtns />
-                    <RedBlackBtns />
                     <GetDoubleBtns />
 
                     <button

@@ -7,7 +7,6 @@
     max-width: 150px;
     display: flex;
     flex-direction: column;
-
 }
 
 .cards section button {
@@ -23,14 +22,12 @@
     row-gap: 20px;
 }
 
-
-
-
+/* Медийни заявки с общи правила */
 @media(max-width: 1160px) {
 
     .cards img,
     .cards button {
-        max-width: 120px;
+        max-width: 110px;
     }
 }
 
@@ -44,6 +41,10 @@
     .cards {
         column-gap: 20px;
     }
+
+    .draftedCard-section img {
+        max-width: 180px;
+    }
 }
 
 @media(max-width: 864px) {
@@ -55,14 +56,12 @@
 }
 
 @media(max-width: 735px) {
-
+    .cards img {
+        height: 150px;
+    }
 
     .cards button {
         max-width: 90px;
-    }
-
-    .cards img {
-        height: 150px;
     }
 
     .cards {
@@ -89,10 +88,7 @@
     }
 }
 
-
-
 @media(max-width: 558px) {
-
     .cards img {
         height: 130px;
         max-width: 70px;
@@ -123,18 +119,14 @@
 }
 
 @media(max-width: 425px) {
-
     .cards img {
         margin-left: 1px;
         width: 45px;
         height: 100px;
-
     }
 
     .cards button {
-
         max-width: 50px;
-
     }
 
     .cards {
@@ -142,24 +134,19 @@
     }
 
     .single-cart {
-
         row-gap: 5px;
     }
 }
 
 @media(max-width: 364px) {
-
     .cards img {
         margin-left: 2px;
         width: 48px;
         height: 100px;
-
     }
 
     .cards button {
-
         max-width: 50px;
-
     }
 
     .cards {
@@ -168,16 +155,13 @@
 }
 
 @media(max-width: 345px) {
-
     .cards img {
         margin-left: 0px;
         width: 40px;
         height: 90px;
-
     }
 
     .cards button {
-
         max-width: 40px;
         font-size: smaller;
     }
@@ -187,16 +171,15 @@
     }
 }
 
+/* Медийни заявки за височина */
 @media only screen and (max-height: 300px) {
     .cards img {
         margin-left: 2px;
         width: 60px;
         height: 50px;
-
     }
 
     .cards button {
-
         max-width: 60px;
         height: 26px;
         padding: 0;
@@ -214,5 +197,11 @@
 
     .cards button {
         font-size: 10px;
+    }
+}
+
+@media only screen and (max-height: 682px) {
+    .draftedCard-section img {
+        max-width: 80px;
     }
 }
