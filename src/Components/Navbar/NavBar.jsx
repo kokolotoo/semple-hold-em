@@ -1,14 +1,20 @@
+import React from 'react';
+import { message } from 'antd';
 import { Link } from 'react-router-dom';
 import './navBar.css';
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import DataContext from '../../Context/DataContext';
 
 // Импортира аудиото
 import audioFile from '../../assets/about-sound.mp3';
 
 export default function Navbar() {
 
+    const { money, setMoney } = useContext(DataContext)
     const [menuOpen, setMenuOpen] = useState(false);
     const audio = new Audio(audioFile);
+    const [messageApi, contextHolder] = message.useMessage();
+
 
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);
@@ -23,6 +29,26 @@ export default function Navbar() {
         setMenuOpen(false);
     }
 
+    const saveGame = () => {
+        const data = {
+            data: money
+        }
+        localStorage.setItem("texas-hold'em", JSON.stringify(data))
+        messageApi.info('Game is saved !');
+    }
+
+    const loadGame = () => {
+        if (money > 10) {
+            messageApi.info('You still have money');
+            return
+        }
+        if (localStorage.getItem("texas-hold'em")) {
+            const savedData = JSON.parse(localStorage.getItem("texas-hold'em"))
+            setMoney(savedData.data)
+            messageApi.info('Game is loaded');
+        }
+    }
+
     useEffect(() => {
         if (menuOpen) {
             document.body.classList.add('scroll-lock');
@@ -32,8 +58,9 @@ export default function Navbar() {
     }, [menuOpen]);
 
     return (
-        <nav className='header__nav'>
 
+        <nav className='header__nav'>
+            {contextHolder}
             <ul className={`header__menu ${menuOpen ? 'header__menu-open' : ''}`}>
 
                 <Link to='/' className='header__logo' onClick={closeMenu}>
@@ -43,8 +70,8 @@ export default function Navbar() {
                 <Link to='/about' className='header__logo' onClick={playAudio}>
                     About
                 </Link>
-                <li className='header__item'>Save Game</li>
-                <li className='header__item'>Load Game</li>
+                <li className='header__item' onClick={saveGame}>Save Game</li>
+                <li className='header__item' onClick={loadGame}>Load Game</li>
                 <li className='header__item' onClick={closeMenu}><Link to='/game'>Play Game</Link></li>
             </ul>
 
