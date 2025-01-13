@@ -51,6 +51,7 @@
     background: none;
     border: none;
     cursor: pointer;
+    
 }
 
 @media screen and (max-width: 1000px) {
@@ -67,9 +68,10 @@
         top: 50px;
         right: 0;
         left: 0;
-        background-color: #3c433bef;
+        background-color: #262e25dd;
         padding: 10px 0;
         border-bottom-right-radius: 15px;
+        z-index: 10;
     }
 
     .header__menu-open {
