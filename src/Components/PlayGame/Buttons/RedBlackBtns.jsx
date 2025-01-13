@@ -41,7 +41,7 @@ const RedBlackBtns = ({ generateCard, playCards, setPlayCards, setWinMessage }) 
                 return { ...item, flipped: false }
             }));
             setWinCheckResult('')
-            
+
             await delay(1000);
             setDoubleButtonKey(false);
             setWinMessage('')

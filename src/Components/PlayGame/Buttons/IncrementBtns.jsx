@@ -7,27 +7,28 @@ import audioFile from '../../../assets/button-sound.mp3';
 
 const IncrementBtns = () => {
 
-    const { bet, setBet, money } = useContext(DataContext);
+    const { bet, setBet, money, firstRow } = useContext(DataContext);
     const audio = new Audio(audioFile);
+
+    const increment = (number) => {
+        if (firstRow) {
+            if(bet >= 50){return}
+            setBet(prev => prev + number)
+            audio.play();
+        }
+    }
 
     return (
         <section className='betButtons'>
 
             <button className='bet+ button'
                 disabled={money <= bet ? true : false}
-                onClick={() => {
-                    setBet(prev => prev + 1)
-                    audio.play();
-                }}
+                onClick={() => increment(1)}
             >Bet + 1</button>
 
             <button className='bet+ button'
                 disabled={money <= bet ? true : false}
-                onClick={() => {
-                    setBet(prev => prev + 5)
-                    audio.play();
-                }
-                }
+                onClick={() => increment(5)}
             >Bet + 5</button>
 
         </section>
