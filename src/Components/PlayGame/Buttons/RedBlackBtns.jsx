@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useMemo } from 'react';
 import '../game.css'
 import { useContext } from "react";
 import DataContext from '../../../Context/DataContext';
@@ -10,10 +10,13 @@ const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
 
 const RedBlackBtns = ({ generateCard, playCards, setPlayCards, setWinMessage }) => {
-    const soundLose = useRef(new Audio(loseAudio));
-    const soundWin = useRef(new Audio(winAudio));
-    const { setDoubleButtonKey, currentCards, setCurrentCards,
-        setWinCheckResult } = useContext(DataContext);
+
+    const { setDoubleButtonKey, currentCards,
+        setCurrentCards, setWinCheckResult } = useContext(DataContext);
+
+
+    const soundLose = useMemo(() => new Audio(loseAudio), []);
+    const soundWin = useMemo(() => new Audio(winAudio), []);
     const redSymbols = ['♥', '♦'];
     const blackSymbols = ['♠', '♣'];
 
@@ -31,12 +34,12 @@ const RedBlackBtns = ({ generateCard, playCards, setPlayCards, setWinMessage }) 
         if (checkForEquals(currentSymbol, choiceColor)) {
             setWinCheckResult(prev => ({ ...prev, win: prev.win * 2 }))
             await delay(100);
-            soundWin.current.play()
+            soundWin.play()
             await delay(400);
             setPlayCards(t => [...t, generateCard()])
 
         } else {
-            await soundLose.current.play()
+            await soundLose.play()
             setCurrentCards(currentCards.map(item => {
                 return { ...item, flipped: false }
             }));

@@ -1,12 +1,22 @@
 import React from 'react';
+import './home.css'
+import { Link } from 'react-router-dom';
 
 const HomePage = () => {
   return (
-    <div>
-      <h1>Welcome to my sample app</h1>
-      <br />
-      <p>In working progress</p>
-    </div>
+    <section className='home-page'>
+      <header>Welcome to sample Poker slot app</header>
+      <main className='button-section'>
+        
+        <button>Login</button>
+
+        <button>Registration</button>
+
+        <button><Link to='/game'>Demo Game</Link></button>
+
+      </main>
+      
+    </section>
   );
 }
 

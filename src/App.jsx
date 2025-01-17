@@ -1,7 +1,6 @@
 import { DataProvider } from './Context/DataContext';
 import { Route, Routes } from 'react-router-dom';
 import Navbar from './Components/Navbar/NavBar';
-import Cards from './Components/Cards/Cards';
 import HomePage from './Components/Home/HomePage';
 import Game from './Components/PlayGame/Game';
 import About from './Components/Home/About';

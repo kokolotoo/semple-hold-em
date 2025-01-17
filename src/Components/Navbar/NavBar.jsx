@@ -72,7 +72,7 @@ export default function Navbar() {
                 </Link>
                 <li className='header__item' onClick={saveGame}>Save Game</li>
                 <li className='header__item' onClick={loadGame}>Load Game</li>
-                <li className='header__item' onClick={closeMenu}><Link to='/game'>Play Game</Link></li>
+
             </ul>
 
             <button className="header__burger" onClick={toggleMenu}>

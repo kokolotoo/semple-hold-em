@@ -6,7 +6,7 @@ import { createContext, useState, useEffect, useMemo } from 'react';
 const DataContext = createContext({});
 
 export const DataProvider = ({ children }) => {
-    const [money, setMoney] = useState(200) //налични пари 
+    const [money, setMoney] = useState(100) //налични пари 
     const [bet, setBet] = useState(1)       //текущ залог
     const deckOfCards = useMemo(() => generateDeck(), []);//генерира тесте карти
     const [isOpened, setIsOpened] = useState(true) // за състояние и цвят на стоп бутони 
@@ -15,8 +15,8 @@ export const DataProvider = ({ children }) => {
     const [winCheckResult, setWinCheckResult] = useState('') // резултата от проверка за победа. Използва се и за активност на бутони
     const [disablePlayButton, setDisablePlayButton] = useState(false) // изключва Play бутона по време на раздаване
     const [doubleButtonKey, setDoubleButtonKey] = useState(false) // за Double бутона- превключва между карти (за игра / за удвояване)
-    
-   
+    const [isLogin, setIsLogin] = useState(false) // дали е логнат профил
+    const [profiles, setProfiles] = useState([]) // списък с регистрирани потребители
 
     useEffect(() => {
         setCurrentCards(draftedCard())
@@ -30,7 +30,8 @@ export const DataProvider = ({ children }) => {
             firstRow, setFirstRow, currentCards, setCurrentCards,
             draftedCard, winCheckResult, setWinCheckResult,
             disablePlayButton, setDisablePlayButton,
-            doubleButtonKey, setDoubleButtonKey
+            doubleButtonKey, setDoubleButtonKey, isLogin, setIsLogin,
+            profiles, setProfiles
         }}>
             {children}
         </DataContext.Provider>
