@@ -17,11 +17,19 @@ export const DataProvider = ({ children }) => {
     const [doubleButtonKey, setDoubleButtonKey] = useState(false) // за Double бутона- превключва между карти (за игра / за удвояване)
     const [isLogin, setIsLogin] = useState(false) // дали е логнат профил
     const [profiles, setProfiles] = useState([]) // списък с регистрирани потребители
+    const [user, setUser] = useState('') // текущ профил
 
     useEffect(() => {
         setCurrentCards(draftedCard())
+        //тук е място за логика за получаване на профили от сървър
+        
+        if (localStorage.getItem("texas-hold'em-profiles")) {
+            const savedData = JSON.parse(localStorage.getItem("texas-hold'em-profiles"))
+            setProfiles(savedData)
+        }
     }, [])
 
+   
 
     return (
         <DataContext.Provider value={{
@@ -31,7 +39,7 @@ export const DataProvider = ({ children }) => {
             draftedCard, winCheckResult, setWinCheckResult,
             disablePlayButton, setDisablePlayButton,
             doubleButtonKey, setDoubleButtonKey, isLogin, setIsLogin,
-            profiles, setProfiles
+            profiles, setProfiles, user, setUser
         }}>
             {children}
         </DataContext.Provider>

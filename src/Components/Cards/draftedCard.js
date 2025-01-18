@@ -25,10 +25,16 @@ export const generateDeck = () => {
             });
         }
     }
+    preloadImages(deck);
     return deck;
 };
 
-
+const preloadImages = (deck) => {
+    deck.forEach(card => {
+        const img = new Image();
+        img.src = card.img;
+    });
+};
 
 
 export const draftedCard = () => {
@@ -38,7 +44,7 @@ export const draftedCard = () => {
     for (let i = 0; i < 5; i++) {
 
         const currentCard = carts[Math.floor(Math.random() * carts.length)]
-        
+
         if (picCards.includes(currentCard)) {
             i--
         } else {

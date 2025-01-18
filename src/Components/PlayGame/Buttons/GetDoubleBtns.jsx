@@ -24,12 +24,14 @@ const GetDoubleBtns = () => {
     return (
         <section className='get-double section'>
             <button className='get button'
+                title='Take a win'
                 disabled={winCheckResult ? false : true}
                 onClick={getMoney}
                 style={{ backgroundColor: winCheckResult ? 'lightgreen' : 'lightgray' }}
             >Get</button>
 
             <button className='double button'
+                title='Double the win'
                 onClick={() => setDoubleButtonKey(true)}
                 disabled={winCheckResult ? false : true}
                 style={{ backgroundColor: winCheckResult ? 'lightgreen' : 'lightgray' }}

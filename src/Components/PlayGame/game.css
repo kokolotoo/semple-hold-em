@@ -58,6 +58,17 @@ table {
     width: 80%;
     margin: auto;
     letter-spacing: 1px;
+    font-size: clamp(10px, 3vw, 16px);
+}
+
+table thead {
+    color: rgb(253, 255, 163);
+    font-family: cursive;
+}
+
+table th,
+td {
+    padding: 1px;
 }
 
 th,
@@ -70,15 +81,6 @@ td:last-of-type {
     text-align: center;
 }
 
-
-
-tfoot th {
-    text-align: right;
-}
-
-tfoot td {
-    font-weight: bold;
-}
 
 /*                end table               */
 
@@ -294,9 +296,13 @@ tfoot td {
 
 }
 
-@media only screen and (max-height: 580px) {
-    .game-info {
-        height: 60%;
+@media only screen and (max-height: 556px) {
+    .game-info img {
+        max-width: 100px;
+    }
+
+    table {
+        font-size: 8px;
     }
 }
 
@@ -309,9 +315,22 @@ tfoot td {
     }
 }
 
-@media only screen and (max-height: 470px) {
+@media only screen and (max-height: 500px) {
 
     table {
         display: none;
     }
+
+    .game-info {
+        height: 100%;
+    }
+}
+
+@media only screen and (max-height: 430px) {
+
+    .game-info img {
+        max-width: 100px;
+        max-height: 120px;
+    }
+
 }

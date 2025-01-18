@@ -3,7 +3,7 @@ import '../game.css'
 import { useContext } from "react";
 import DataContext from '../../../Context/DataContext';
 import loseAudio from '../../../assets/no-win.mp3'
-import winAudio from '../../../assets/lowwin.mp3'
+import winAudio from '../../../assets/lowWin.mp3'
 
 // Помощна функция за закъснение
 const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));

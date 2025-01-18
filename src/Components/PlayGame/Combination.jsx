@@ -12,7 +12,7 @@ const Combination = () => {
         <table>
             <thead>
                 <tr>
-                    <th scope="col">Name</th>
+                    <th scope="col" style={{font:'bold'}}>Name</th>
                     <th scope="col">Profit</th>
                 </tr>
             </thead>
