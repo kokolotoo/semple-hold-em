@@ -28,7 +28,7 @@ const Cards = () => {
     <div className='cards'>
       {currentCards.map((cart, i) =>
         <section key={i} className='single-cart'>
-          <FlippedCards cart={cart} /><hr />
+          <FlippedCards cart={cart} />
           <button
             onClick={() => stopCard(cart.symbol)}
             style={{

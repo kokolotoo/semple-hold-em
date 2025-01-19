@@ -21,11 +21,11 @@ const Combination = () => {
                     <tr key={i}
                         style={{
                             backgroundColor:
-                                winResult === row.name ? 'lightgray' : 'transparent'
+                                winResult === row.name ? 'lightgreen' : 'transparent'
                         }}
                     >
                         <th scope="row">{row.name}</th>
-                        <td>bet x {row.winMultiplier}</td>
+                        <td> x {row.winMultiplier}</td>
                     </tr>
                 )}
             </tbody>
