@@ -7,8 +7,8 @@ import DataContext from '../../Context/DataContext';
 import { CgProfile } from "react-icons/cg";
 
 // Импортира аудиото
-import audioFile from '../../assets/about-sound.mp3';
-import audioFile2 from '../../assets/button-sound.mp3';
+import audioFile from '../public/about-sound.mp3';
+import audioFile2 from '../public/button-sound.mp3';
 
 export default function Navbar() {
     const navigate = useNavigate()

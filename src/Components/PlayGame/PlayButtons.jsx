@@ -6,7 +6,6 @@ import './game.css'
 import usePlayGame from '../../Hooks/PlayGame';
 import { GiPokerHand } from "react-icons/gi";
 import GetDoubleBtns from './Buttons/GetDoubleBtns';
-import RedBlackBtns from './Buttons/RedBlackBtns';
 import IncrementBtns from './Buttons/IncrementBtns';
 import DecrementBtns from './Buttons/DecrementBtns';
 

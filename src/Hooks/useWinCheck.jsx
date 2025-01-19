@@ -1,7 +1,7 @@
 
 import { useRef, useContext, useCallback } from "react";
-import audioFile from '../assets/win.wav';
-import audioFile2 from '../assets/lowwin.mp3';
+import audioFile from '../Components/public/win.wav';
+import audioFile2 from '../Components/public/lowWin.mp3';
 import DataContext from '../Context/DataContext';
 
 const useWinCheck = () => {
