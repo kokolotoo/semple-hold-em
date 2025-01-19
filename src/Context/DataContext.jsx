@@ -2,7 +2,6 @@
 import { generateDeck, draftedCard } from '../Components/Cards/draftedCard';
 import { createContext, useState, useEffect, useMemo } from 'react';
 
-
 const DataContext = createContext({});
 
 export const DataProvider = ({ children }) => {
@@ -30,7 +29,6 @@ export const DataProvider = ({ children }) => {
     }, [])
 
    
-
     return (
         <DataContext.Provider value={{
             money, setMoney, bet, setBet, deckOfCards,
