@@ -78,7 +78,7 @@ export default function Navbar() {
                     About
                 </Link>
                 {isLogin &&
-                    <div style={{ display: "flex", gap: "20px" }}>
+                    <div className='user-info-container'>
                         <li className='header__item' onClick={saveGame}>Save Game</li>
                         <CgProfile title={user.username} />
                         <li className='header__item' onClick={handleExit}>Exit</li>

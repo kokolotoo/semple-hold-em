@@ -19,6 +19,8 @@ const LoginPage = () => {
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
+        console.log(formData);
+        
     };
 
     const handleSubmit = (e) => {
@@ -34,7 +36,7 @@ const LoginPage = () => {
             setIsLogin(true);
             navigate('/game'); // Пренасочване след успешен вход
         } else {
-            setLoginError("Invalid email or password.");
+            setLoginError("Invalid username or password.");
         }
     };
 
