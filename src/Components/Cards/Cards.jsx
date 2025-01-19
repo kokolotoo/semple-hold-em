@@ -1,7 +1,6 @@
 import React from 'react';
 import DataContext from '../../Context/DataContext';
-import { useState, useEffect, useContext } from 'react';
-import { draftedCard } from './draftedCard';
+import { useContext } from 'react';
 import FlippedCards from './FlippedCards';
 import './carts.css'
 

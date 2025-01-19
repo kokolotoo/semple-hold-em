@@ -2,7 +2,7 @@ import React from 'react';
 import '../game.css'
 import { useContext } from "react";
 import DataContext from '../../../Context/DataContext';
-import audioFile from '../../../assets/button-sound.mp3';
+import audioFile from '../../public/button-sound.mp3';
 
 
 const DecrementBtns = () => {

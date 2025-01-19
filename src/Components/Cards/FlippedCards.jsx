@@ -1,6 +1,5 @@
 import React from 'react'
 import ReactCardFlip from 'react-card-flip';
-import { useState } from 'react';
 import './carts.css'
 
 const FlippedCards = ({cart}) => {
