@@ -21,7 +21,7 @@ const Combination = () => {
                     <tr key={i}
                         style={{
                             backgroundColor:
-                                winResult === row.name ? 'lightgreen' : 'transparent'
+                                winResult === row.name ? 'white' : 'transparent'
                         }}
                     >
                         <th scope="row">{row.name}</th>

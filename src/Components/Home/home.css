@@ -106,6 +106,7 @@ label {
     display: block;
     font-weight: bold;
     margin-bottom: 5px;
+    margin-top: 15px;
 }
 
 input {
@@ -125,6 +126,7 @@ input {
     border: none;
     border-radius: 4px;
     margin-bottom: 15px;
+    margin-top: 25px;
 }
 
 .login-form-container button:hover {
@@ -163,7 +165,6 @@ p {
 
 .register-form-title {
     text-align: center;
-    margin-bottom: 10px;
     color: #20291b;
 }
 
@@ -179,13 +180,13 @@ form div {
 
 .register-form-container label {
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 1px;
     color: #66240a;
 }
 
 .register-form-container input {
     width: 100%;
-    padding: 5px;
+    padding:10px;
     border-radius: 4px;
     font-size: 14px;
 }
@@ -207,6 +208,7 @@ input:focus {
     cursor: pointer;
     letter-spacing: 1px;
     margin-bottom: 10px;
+    margin-top: 10px;
 }
 
 .register-form-container button:hover {

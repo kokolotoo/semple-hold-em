@@ -93,7 +93,7 @@ const Registration = () => {
                         </section>
 
                     </div>
-                    {errors.read && <p style={{ color: "red", textAlign: 'end', marginTop: "-20px" }}>{errors.read}</p>}
+                    {errors.read && <p style={{ color: "red", textAlign: 'end' }}>{errors.read}</p>}
                 </div>
                 <button type="submit">Submit</button>
                 <Link to='/login'>I have account</Link>

@@ -2,6 +2,9 @@
 
 .info-board {
     display: flex;
+    width: 100%;
+    max-width: 900px;
+    margin: auto;
     justify-content: space-around;
     padding: 10px;
     background-color: rgb(6, 8, 8);
@@ -34,6 +37,8 @@
 
 .game-info {
     width: 100%;
+    max-width: 900px;
+    margin: auto;
     height: 40%;
     position: relative;
     padding: 9px;
