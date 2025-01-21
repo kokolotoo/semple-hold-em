@@ -45,23 +45,24 @@ h3 {
     text-align: center;
 }
 
-.home-page header {
-    border-bottom: 0.2em solid rgb(17, 20, 11);
+.home-page h2 {
     padding-bottom: 1em;
     margin-top: 1em;
     color: #162433;
 }
 
 .button-section {
-    max-width: 90%;
+    width: 70%;
+    max-width: 500px;
     margin: auto;
     height: 45vh;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-
-
+    border-radius: 10px;
+    margin-top: 1em;
+    box-shadow: inset 1px 1px 5px 1px grey;
 }
 
 .button-section a {
@@ -186,7 +187,7 @@ form div {
 
 .register-form-container input {
     width: 100%;
-    padding:10px;
+    padding: 10px;
     border-radius: 4px;
     font-size: 14px;
 }
@@ -276,7 +277,7 @@ input[type="checkbox"] {
     letter-spacing: 2px;
 }
 
-.forgot-container input:focus{
+.forgot-container input:focus {
     border: 1px solid black;
 }
 
@@ -301,7 +302,7 @@ input[type="checkbox"] {
     border: none;
 }
 
-.forgot-container button:hover{
+.forgot-container button:hover {
     background-color: #1335a7;
     transition: 0.3s;
 }
@@ -323,7 +324,7 @@ input[type="checkbox"] {
     gap: 10px;
 }
 
-.forgot-container h3{
+.forgot-container h3 {
     color: #000000;
     font-size: clamp(12px, 2vw, 20px);
 }

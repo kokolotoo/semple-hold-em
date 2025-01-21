@@ -47,6 +47,7 @@ export default function Navbar() {
             type: 'success',
             content: 'Game Saved',
         });
+        setMenuOpen(false);
     }
 
     const handleExit = () => {
@@ -54,6 +55,7 @@ export default function Navbar() {
         setUser('')
         navigate('/')
         setMoney(100)
+        setMenuOpen(false);
     }
 
     useEffect(() => {

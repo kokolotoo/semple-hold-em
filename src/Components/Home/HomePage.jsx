@@ -10,7 +10,7 @@ const HomePage = () => {
 
   return (
     <section className='home-page'>
-      <header>Welcome to sample Poker slot app</header>
+      <h2>Welcome to sample Poker slot app</h2>
 
       {isLogin ?
         <main className='button-section'>
