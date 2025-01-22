@@ -1,4 +1,4 @@
-import React from 'react'
+import { Link} from 'react-router';
 import './home.css'
 
 const About = () => {
@@ -17,7 +17,7 @@ const About = () => {
       </p>
       <h3>Have fun 😎</h3>
       <footer>
-        <p> Created by <b>Kokoloto&reg;</b></p>
+        <p> Created by <a href="https://github.com/kokolotoo/semple-hold-em" target='_blank'>Kokoloto&reg;</a></p>
       </footer>
     </main>
   )
