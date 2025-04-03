@@ -1,14 +1,16 @@
 import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import DataContext from "../Context/DataContext";
-
-
+import {
+    createUserWithEmailAndPassword, updateProfile
+} from 'firebase/auth';
+import { auth } from './firebase-config';
 
 const useRegistration = () => {
 
     const { setIsLogin, profiles, money, setMoney, setUser } = useContext(DataContext)
     const navigation = useNavigate()
-    
+
     const [formData, setFormData] = useState({
         username: "",
         email: "",
@@ -51,7 +53,7 @@ const useRegistration = () => {
         return validationErrors;
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         const validationErrors = validateForm();
@@ -60,40 +62,54 @@ const useRegistration = () => {
             setErrors(validationErrors);
 
         } else {
+            try {
 
-            setErrors({});
+                setErrors({});
 
-            if (checkForMach(formData)) { return }
+                if (checkForMach(formData)) { return }
 
-            setSuccessMessage("Регистрацията e успешна!");
-            // Тук можете да изпратите данните към сървъра.
-            //console.log("Регистрационни данни:", formData);
+                const userCredential = await createUserWithEmailAndPassword(auth, formData.email, formData.password);
+                await updateProfile(userCredential.user, {
+                    displayName: formData.username,  // Запазваме потребителското име
+                });
 
-            setReadAbout(false)
-            setShowPassword(false)
-            setIsLogin(true)
+                setUser({
+                    name: userCredential.user.displayName || "No Name",
+                    email: userCredential.user.email,
+                    id: userCredential.user.uid,
+                    userName: userCredential.user.displayName,
+                    money: money
+                })
+                setSuccessMessage("Регистрацията e успешна!");
+                setReadAbout(false)
+                setShowPassword(false)
+                setIsLogin(true)
+                setFormData({
+                    username: "",
+                    email: "",
+                    password: "",
+                    confirmPassword: "",
+                    money: 0,
+                });
 
-            const updatedProfiles = [...profiles, formData];
-            //тук е с мястото за логика за изпращане на данни към сървър
+                //тук се извлича запис за профил ако има
+                setMoney(formData.money)
 
-            localStorage.setItem("texas-hold'em-profiles", JSON.stringify(updatedProfiles));
-
-            setUser(formData)
-
-            setFormData({
-                username: "",
-                email: "",
-                password: "",
-                confirmPassword: "",
-                money: 0,
-            });
-
-            setMoney(formData.money)
-
-            setTimeout(() => {
-                navigation('/')
-                setSuccessMessage("");
-            }, 1000)
+                setTimeout(() => {
+                    navigation('/')
+                    setSuccessMessage("");
+                }, 1000)
+            } catch (err) {
+                const message = err.code.slice(err.code.indexOf('/') + 1)
+                setSuccessMessage(message)
+                setFormData({
+                    username: formData.username,
+                    email: "",
+                    password: formData.password,
+                    confirmPassword: formData.confirmPassword,
+                    money: formData.money,
+                });
+            }
         }
     };
 
@@ -119,11 +135,11 @@ const useRegistration = () => {
         return false
     }
 
-   return {
-    errors, successMessage, showPassword,
-       handleChange, handleSubmit, setShowPassword,
-       formData, readAbout, setReadAbout
-   }
+    return {
+        errors, successMessage, showPassword,
+        handleChange, handleSubmit, setShowPassword,
+        formData, readAbout, setReadAbout
+    }
 }
 
 export default useRegistration;

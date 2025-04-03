@@ -3,10 +3,15 @@ import './home.css'
 import { Link } from 'react-router-dom';
 import DataContext from '../../Context/DataContext';
 import { useContext } from "react";
+import useLoadGame from '../../Hooks/useLoadGame';
 
 const HomePage = () => {
+  const { loadedMoney } = useLoadGame();
+  const { isLogin, user, setMoney } = useContext(DataContext)
 
-  const { isLogin } = useContext(DataContext)
+  const playGame = () => {
+    setMoney(loadedMoney)
+  }
 
   return (
     <section className='home-page'>
@@ -14,7 +19,8 @@ const HomePage = () => {
 
       {isLogin ?
         <main className='button-section'>
-          <button><Link to='/game'>Play Game</Link></button>
+          <h3>Welcomme back <b>{user.name}</b></h3>
+          <Link to='/game' onClick={playGame}>Play Game</Link>
         </main>
         :
         <main className='button-section'>

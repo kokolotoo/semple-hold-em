@@ -5,6 +5,10 @@ import './navBar.css';
 import { useEffect, useState, useContext } from "react";
 import DataContext from '../../Context/DataContext';
 import { CgProfile } from "react-icons/cg";
+import { auth, db } from '../../Hooks/firebase-config';
+import { signOut } from 'firebase/auth';
+import { doc, setDoc } from 'firebase/firestore'
+import useLoadGame from '../../Hooks/useLoadGame';
 
 // Импортира аудиото
 import audioFile from '../public/about-sound.mp3';
@@ -12,13 +16,13 @@ import audioFile2 from '../public/button-sound.mp3';
 
 export default function Navbar() {
     const navigate = useNavigate()
-    const { money, setMoney, isLogin, setIsLogin, setBet,
-        bet, user, setUser, profiles, setProfiles } = useContext(DataContext)
+    const { money, setMoney, isLogin, setIsLogin,
+        user, setUser } = useContext(DataContext)
     const [menuOpen, setMenuOpen] = useState(false);
     const audio = new Audio(audioFile);
     const audio2 = new Audio(audioFile2);
     const [messageApi, contextHolder] = message.useMessage();
-
+    const { loadedMoney } = useLoadGame();
 
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);
@@ -33,29 +37,40 @@ export default function Navbar() {
         setMenuOpen(false);
     }
 
-    const saveGame = () => {
-        audio2.play();
-        const newProfiles = profiles.map(profile => {
-            if (profile.username === user.username) {
-                return { ...profile, money: money }
-            }
-            return profile
-        })
-        setProfiles(newProfiles)
-        localStorage.setItem("texas-hold'em-profiles", JSON.stringify(newProfiles))
-        messageApi.open({
-            type: 'success',
-            content: 'Game Saved',
-        });
-        setMenuOpen(false);
+    const load = () => {
+        setMoney(loadedMoney)
     }
 
-    const handleExit = () => {
-        setIsLogin(false)
-        setUser('')
-        navigate('/')
-        setMoney(100)
-        setMenuOpen(false);
+    const saveGame = async () => {
+        try {
+            audio2.play();
+            setMenuOpen(false);
+            const usersMoneyRef = doc(db, 'Users-Money', user.id)
+            const storedData = {
+                id: user.id,
+                name: user.name,
+                money: money
+            }
+            await setDoc(usersMoneyRef, storedData)
+            console.log('успешен запис', user.id);
+        } catch (err) {
+            console.log(err.message);
+        }
+    }
+
+    const handleExit = async () => {
+        try {
+            await signOut(auth);
+            setUser('')
+            navigate('/')
+            setMoney(100)
+            setMenuOpen(false);
+            setIsLogin(false)
+        } catch (err) {
+            const errorMatch = err.message.match(/\(auth\/(.*?)\)/);
+            setError(errorMatch ? errorMatch[1].replace(/-/g, " ") : "Unknown error");
+        }
+
     }
 
     useEffect(() => {
@@ -82,8 +97,9 @@ export default function Navbar() {
                 {isLogin &&
                     <div className='user-info-container'>
                         <li className='header__item' onClick={saveGame}>Save Game</li>
-                        <CgProfile title={user.username} />
+                        <CgProfile title={user.name} />
                         <li className='header__item' onClick={handleExit}>Exit</li>
+                        <li className='header__item' onClick={load}>Load game</li>
                     </div>
                 }
             </ul>

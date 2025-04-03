@@ -13,6 +13,7 @@
     "antd": "^5.23.0",
     "axios": "^1.7.9",
     "bootstrap": "^5.3.3",
+    "firebase": "^11.6.0",
     "mdb-react-ui-kit": "^9.0.0",
     "primereact": "^10.9.1",
     "react": "^18.3.1",

@@ -6,10 +6,10 @@ import { useContext } from 'react'
 import Combination from './Combination'
 import DoubleButtonCards from '../Cards/DoubleButtonCards'
 
+
 const Game = () => {
 
     const { money, bet, winCheckResult, doubleButtonKey } = useContext(DataContext)
-
 
     return (
         <main className='game'>
@@ -23,12 +23,12 @@ const Game = () => {
 
             <fieldset className="game-info">
                 <legend>Win combination</legend>
-                {doubleButtonKey ? <DoubleButtonCards /> :<Combination />}
+                {doubleButtonKey ? <DoubleButtonCards /> : <Combination />}
             </fieldset>
 
             <section className="card-board">
-                {doubleButtonKey ?  null : <Cards />}
-                
+                {doubleButtonKey ? null : <Cards />}
+
             </section>
         </main>
     )
