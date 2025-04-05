@@ -52,7 +52,10 @@ export default function Navbar() {
                 money: money
             }
             await setDoc(usersMoneyRef, storedData)
-            console.log('успешен запис', user.id);
+            messageApi.open({
+                type: 'success',
+                content: 'Game saved',
+            });
         } catch (err) {
             console.log(err.message);
         }
