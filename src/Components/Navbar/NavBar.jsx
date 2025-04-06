@@ -6,7 +6,7 @@ import { useEffect, useState, useContext } from "react";
 import DataContext from '../../Context/DataContext';
 import { CgProfile } from "react-icons/cg";
 import { auth, db } from '../../Hooks/firebase-config';
-import { signOut } from 'firebase/auth';
+import { signOut, getAuth } from 'firebase/auth';
 import { doc, setDoc } from 'firebase/firestore'
 import useLoadGame from '../../Hooks/useLoadGame';
 
@@ -23,6 +23,7 @@ export default function Navbar() {
     const audio2 = new Audio(audioFile2);
     const [messageApi, contextHolder] = message.useMessage();
     const { loadedMoney } = useLoadGame();
+   
 
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);

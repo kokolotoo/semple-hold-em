@@ -4,14 +4,18 @@ import './home.css'
 const About = () => {
   return (
     <main className='about-info'>
-      <h4>
-        This version of the game is created for entertainment purposes only.
-      </h4>
-      <b>!!!</b>
+
       <b className='important-message'>
-        The information provided during registration is not stored reliably and does not need to be real. It is for the purpose of saving your score and using it.
+        We value your privacy. When you sign in to the game, your email address is used solely to identify your account.
       </b>
-      <b>!!!</b>
+      <ul>
+        <li> Your email is never shared with third parties.</li>
+        <li> It is not used for marketing or promotional purposes.</li>
+        <li> It is stored securely and used only to enable your access to the game.</li>
+        <li> If you choose to delete your account, your email and any associated data will be permanently removed.</li>
+        <li> Your email is also used to securely store your game results and progress. This allows you to access your data across devices and keep track of your achievements.</li>
+      </ul>
+      
       <p>
         It is not played with real money and potential winnings are not paid out.
       </p>
