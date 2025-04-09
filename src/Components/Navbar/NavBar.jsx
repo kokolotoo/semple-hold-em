@@ -40,6 +40,10 @@ export default function Navbar() {
 
     const load = () => {
         setMoney(loadedMoney)
+        messageApi.open({
+            type: 'success',
+            content: 'Game is loaded',
+        });
     }
 
     const saveGame = async () => {
